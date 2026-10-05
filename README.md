@@ -18,9 +18,6 @@ A modern, elegant digital wedding invitation inspired by Pakistani wedding aesth
 - JavaScript
 - CSS
 
-## 🚀 Live Demo
-
-[View Invitation](https://adina-portfolio.vercel.app/)
 
 ## 👩‍💻 Author
 
