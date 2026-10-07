@@ -20,5 +20,7 @@ A modern, elegant digital wedding invitation inspired by Pakistani wedding aesth
 
 
 ## 👩‍💻 Author
-
 **Adina** — AI Developer
+
+## Deployments
+-https://carnival-ten-omega.vercel.app/
