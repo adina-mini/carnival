@@ -101,6 +101,51 @@ export default function IvorySageWalimaTemplate({ data, isSample = false, invita
           {/* TOP ORNATE CORNER BORDER */}
           <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#8B9E82] via-[#C9A84C] to-[#8B9E82]" />
 
+          {/* PAGE 1: SPIRITUAL DEDICATION (BISMILLAH & SURAH AR-RUM 30:21) */}
+          <section className="relative min-h-[92dvh] sm:min-h-[720px] flex flex-col justify-between items-center pt-10 pb-8 px-6 sm:px-8 text-center bg-gradient-to-b from-[#FAF7F0] via-[#FAF7F0] to-[#FAF7F0]">
+            {/* Ornate Top Header Filigree */}
+            <div className="flex items-center justify-center pt-2">
+              <svg className="w-36 h-7 text-[#C9A84C] opacity-90" viewBox="0 0 160 30" fill="currentColor">
+                <path d="M80,3 C65,3 55,18 40,18 C28,18 20,8 10,15 C5,18 2,25 0,28 C10,25 22,23 35,23 C50,23 60,10 80,10 C100,10 110,23 125,23 C138,23 150,25 160,28 C158,25 155,18 150,15 C140,8 132,18 120,18 C105,18 95,3 80,3 Z" opacity="0.85" />
+              </svg>
+            </div>
+
+            <div className="my-auto py-2 w-full flex flex-col items-center">
+              <p className="font-amiri text-lg sm:text-xl text-[#18261A] font-normal tracking-wide mb-5 select-none">
+                بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+              </p>
+
+              {/* Quranic Verse (Surah Ar-Rum 30:21) Card */}
+              <div className="max-w-xs sm:max-w-sm mx-auto p-5 sm:p-6 rounded-2xl bg-gradient-to-b from-[#F3EFE6] to-[#EBE4D5] border border-[#C9A84C]/50 shadow-sm relative">
+                <div className="flex items-center justify-center -mt-8 mb-2">
+                  <span className="w-8 h-8 rounded-full bg-[#C9A84C] text-[#FAF7F0] flex items-center justify-center border-2 border-[#FAF7F0] shadow-sm">
+                    <Sparkles className="w-4 h-4 fill-current" />
+                  </span>
+                </div>
+                <p className="font-amiri text-base sm:text-lg text-[#18261A] font-bold leading-relaxed mb-3" dir="rtl">
+                  وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ
+                </p>
+                <div className="w-12 h-px bg-[#C9A84C]/60 mx-auto my-3" />
+                <blockquote className="font-cormorant italic text-xs sm:text-sm text-[#2B3E29] leading-relaxed">
+                  &ldquo;And among His signs is that He created for you spouses from among yourselves so that you may find tranquility in them, and He placed between you affection and mercy. Indeed in that are signs for a people who give thought.&rdquo;
+                </blockquote>
+                <span className="inline-block mt-2.5 font-cinzel text-[10px] tracking-[0.2em] uppercase text-[#7A6326] font-bold">
+                  (Surah Ar-Rum 30:21)
+                </span>
+              </div>
+            </div>
+
+            {/* Scroll Down Indicator */}
+            <div className="pb-2 flex flex-col items-center justify-center opacity-75">
+              <span className="text-[10px] font-cinzel tracking-[0.25em] uppercase text-[#7A6326] mb-1.5 font-semibold">
+                Scroll to View Invitation ♡
+              </span>
+              <div className="w-5 h-8 rounded-full border border-[#C9A84C] flex items-start justify-center p-1">
+                <span className="w-1.5 h-2.5 bg-[#C9A84C] rounded-full animate-bounce" />
+              </div>
+            </div>
+          </section>
+
           {/* HEADER SECTION */}
           <header className="pt-10 pb-6 px-6 text-center relative">
             <div className="flex justify-center items-center gap-2 mb-3">
@@ -363,14 +408,36 @@ export default function IvorySageWalimaTemplate({ data, isSample = false, invita
             </button>
           </section>
 
-          {/* FOOTER */}
-          <footer className="py-8 px-6 text-center bg-[#FAF7F0] border-t border-[#C9A84C]/30">
-            <p className="font-script text-4xl text-[#324530] mb-2">
-              {groomName.split(' ')[0]} &amp; {brideName.split(' ')[0]}
-            </p>
-            <p className="font-cinzel text-[10px] tracking-widest text-[#556B52] uppercase font-semibold">
-              {hashtag}
-            </p>
+          {/* SECTION 7: SUNNAH DUA & FOOTER */}
+          <footer className="pt-8 pb-14 px-6 sm:px-8 text-center bg-gradient-to-b from-[#FAF7F0] via-[#F4EFE6] to-[#EBE4D5]">
+            <div className="max-w-xs mx-auto">
+              <h2 className="font-serif text-2xl sm:text-3xl text-[#18261A] font-bold mb-2">We Eagerly Await You!</h2>
+
+              <div className="my-5 p-4 rounded-2xl bg-white/80 border border-[#C9A84C]/45 shadow-sm text-center">
+                <span className="inline-flex items-center gap-1.5 font-cinzel text-[10px] tracking-[0.25em] uppercase text-[#7A6326] font-semibold mb-2">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  A Sacred Prayer
+                </span>
+                <p className="font-amiri text-base sm:text-lg text-[#18261A] font-bold leading-relaxed mb-2" dir="rtl">
+                  بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ
+                </p>
+                <div className="w-10 h-0.5 bg-[#C9A84C]/50 mx-auto my-2" />
+                <p className="font-cormorant italic text-sm sm:text-base text-[#2B3E29] leading-relaxed font-medium">
+                  &ldquo;May Allah bless this union, bind your hearts with lifelong affection and mercy, and make your home a sanctuary of peace.&rdquo;
+                </p>
+              </div>
+
+              <p className="font-cormorant italic text-base text-[#556B52] mb-2">
+                With love, prayers &amp; eternal gratitude,
+              </p>
+              <p className="font-script text-4xl sm:text-5xl text-[#18261A] mb-6">
+                {groomName.split(' ')[0]} &amp; {brideName.split(' ')[0]}
+              </p>
+
+              <p className="text-[10px] font-cinzel tracking-[0.25em] text-[#556B52] uppercase font-semibold">
+                {hashtag}
+              </p>
+            </div>
           </footer>
         </div>
       </main>

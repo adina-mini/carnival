@@ -95,6 +95,51 @@ export default function NoorWalimaTemplate({ data, isSample = false, invitationI
           <div className="absolute inset-2 sm:inset-3 border border-champagne-500/50 rounded-t-[160px] rounded-b-[28px] pointer-events-none z-10" />
           <div className="absolute inset-3.5 sm:inset-4.5 border border-wine-900/20 rounded-t-[152px] rounded-b-[24px] pointer-events-none z-10" />
 
+          {/* PAGE 1: SPIRITUAL DEDICATION (BISMILLAH & SURAH AR-RUM 30:21) */}
+          <section className="relative min-h-[92dvh] sm:min-h-[720px] flex flex-col justify-between items-center pt-10 pb-8 px-6 sm:px-8 text-center bg-gradient-to-b from-[#FAF5EE] via-[#FAF5EE] to-[#FAF5EE]">
+            {/* Ornate Top Header Filigree */}
+            <div className="flex items-center justify-center pt-2">
+              <svg className="w-36 h-7 text-champagne-500 opacity-90" viewBox="0 0 160 30" fill="currentColor">
+                <path d="M80,3 C65,3 55,18 40,18 C28,18 20,8 10,15 C5,18 2,25 0,28 C10,25 22,23 35,23 C50,23 60,10 80,10 C100,10 110,23 125,23 C138,23 150,25 160,28 C158,25 155,18 150,15 C140,8 132,18 120,18 C105,18 95,3 80,3 Z" opacity="0.85" />
+              </svg>
+            </div>
+
+            <div className="my-auto py-2 w-full flex flex-col items-center">
+              <p className="font-amiri text-lg sm:text-xl text-wine-900/90 font-normal tracking-wide mb-5 select-none">
+                بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+              </p>
+
+              {/* Quranic Verse (Surah Ar-Rum 30:21) Card */}
+              <div className="max-w-xs sm:max-w-sm mx-auto p-5 sm:p-6 rounded-2xl bg-gradient-to-b from-[#FAF2E6] to-[#F5EAD9] border border-champagne-500/50 shadow-sm relative">
+                <div className="flex items-center justify-center -mt-8 mb-2">
+                  <span className="w-8 h-8 rounded-full bg-champagne-500 text-wine-950 flex items-center justify-center border-2 border-[#FAF5EE] shadow-sm">
+                    <Sparkles className="w-4 h-4 fill-current" />
+                  </span>
+                </div>
+                <p className="font-amiri text-base sm:text-lg text-wine-950 font-bold leading-relaxed mb-3" dir="rtl">
+                  وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ
+                </p>
+                <div className="w-12 h-px bg-champagne-500/60 mx-auto my-3" />
+                <blockquote className="font-cormorant italic text-xs sm:text-sm text-wine-900/90 leading-relaxed">
+                  &ldquo;And among His signs is that He created for you spouses from among yourselves so that you may find tranquility in them, and He placed between you affection and mercy. Indeed in that are signs for a people who give thought.&rdquo;
+                </blockquote>
+                <span className="inline-block mt-2.5 font-cinzel text-[10px] tracking-[0.2em] uppercase text-champagne-600 font-bold">
+                  (Surah Ar-Rum 30:21)
+                </span>
+              </div>
+            </div>
+
+            {/* Scroll Down Indicator */}
+            <div className="pb-2 flex flex-col items-center justify-center opacity-75">
+              <span className="text-[10px] font-cinzel tracking-[0.25em] uppercase text-champagne-700 mb-1.5 font-semibold">
+                Scroll to View Invitation ♡
+              </span>
+              <div className="w-5 h-8 rounded-full border border-champagne-500 flex items-start justify-center p-1">
+                <span className="w-1.5 h-2.5 bg-champagne-600 rounded-full animate-bounce" />
+              </div>
+            </div>
+          </section>
+
           {/* HEADER SECTION */}
           <header className="relative pt-12 pb-8 px-6 text-center bg-gradient-to-b from-[#FAF2E6] via-[#FAF5EE] to-[#FAF5EE]">
             
@@ -293,14 +338,36 @@ export default function NoorWalimaTemplate({ data, isSample = false, invitationI
             </button>
           </section>
 
-          {/* FOOTER */}
-          <footer className="py-8 px-6 text-center bg-[#FAF5EE] border-t border-champagne-300">
-            <p className="font-script text-4xl text-wine-950 mb-1">
-              {groomName.split(' ')[0]} &amp; {brideName.split(' ')[0]}
-            </p>
-            <p className="font-cinzel text-[10px] tracking-widest text-champagne-700 uppercase font-semibold">
-              {hashtag}
-            </p>
+          {/* SECTION 7: SUNNAH DUA & FOOTER */}
+          <footer className="pt-8 pb-14 px-6 sm:px-8 text-center bg-gradient-to-b from-[#FAF5EE] via-[#F5EADF] to-[#E9D9C5]">
+            <div className="max-w-xs mx-auto">
+              <h2 className="font-serif text-2xl sm:text-3xl text-wine-950 font-bold mb-2">We Eagerly Await You!</h2>
+
+              <div className="my-5 p-4 rounded-2xl bg-white/80 border border-champagne-500/45 shadow-sm text-center">
+                <span className="inline-flex items-center gap-1.5 font-cinzel text-[10px] tracking-[0.25em] uppercase text-champagne-600 font-semibold mb-2">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  A Sacred Prayer
+                </span>
+                <p className="font-amiri text-base sm:text-lg text-wine-950 font-bold leading-relaxed mb-2" dir="rtl">
+                  بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ
+                </p>
+                <div className="w-10 h-0.5 bg-champagne-500/50 mx-auto my-2" />
+                <p className="font-cormorant italic text-sm sm:text-base text-wine-900/90 leading-relaxed font-medium">
+                  &ldquo;May Allah bless this union, bind your hearts with lifelong affection and mercy, and make your home a sanctuary of peace.&rdquo;
+                </p>
+              </div>
+
+              <p className="font-cormorant italic text-base text-wine-900/80 mb-2">
+                With love, prayers &amp; eternal gratitude,
+              </p>
+              <p className="font-script text-4xl sm:text-5xl text-wine-950 mb-6">
+                {groomName.split(' ')[0]} &amp; {brideName.split(' ')[0]}
+              </p>
+
+              <p className="text-[10px] font-cinzel tracking-[0.25em] text-champagne-700 uppercase font-semibold">
+                {hashtag}
+              </p>
+            </div>
           </footer>
         </div>
       </main>
