@@ -138,6 +138,51 @@ export default function QawwaliTemplate({ data, isSample = false, invitationId, 
       <main className="relative z-10 w-full min-h-screen py-0 sm:py-10 flex justify-center items-start">
         <div className="w-full sm:max-w-[480px] bg-gradient-to-b from-[#0A111F] via-[#070D18] to-[#040810] text-[#FAF5EF] sm:rounded-[36px] shadow-[0_25px_90px_rgba(0,0,0,0.9)] border-0 sm:border border-[#D4AF37]/35 overflow-hidden relative">
 
+          {/* PAGE 1: SPIRITUAL DEDICATION (BISMILLAH & SURAH AR-RUM 30:21) */}
+          <section className="relative min-h-[92dvh] sm:min-h-[720px] flex flex-col justify-between items-center pt-10 pb-8 px-6 sm:px-8 text-center bg-gradient-to-b from-[#0A111F] via-[#070D18] to-[#040810]">
+            {/* Ornate Top Header Filigree */}
+            <div className="flex items-center justify-center pt-2">
+              <svg className="w-36 h-7 text-[#D4AF37] opacity-90" viewBox="0 0 160 30" fill="currentColor">
+                <path d="M80,3 C65,3 55,18 40,18 C28,18 20,8 10,15 C5,18 2,25 0,28 C10,25 22,23 35,23 C50,23 60,10 80,10 C100,10 110,23 125,23 C138,23 150,25 160,28 C158,25 155,18 150,15 C140,8 132,18 120,18 C105,18 95,3 80,3 Z" opacity="0.85" />
+              </svg>
+            </div>
+
+            <div className="my-auto py-2 w-full flex flex-col items-center">
+              <p className="font-amiri text-lg sm:text-xl text-[#FAF5EF] font-normal tracking-wide mb-5 select-none">
+                بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+              </p>
+
+              {/* Quranic Verse (Surah Ar-Rum 30:21) Card */}
+              <div className="max-w-xs sm:max-w-sm mx-auto p-5 sm:p-6 rounded-2xl bg-gradient-to-b from-[#0E182A] to-[#070D18] border border-[#D4AF37]/50 shadow-sm relative">
+                <div className="flex items-center justify-center -mt-8 mb-2">
+                  <span className="w-8 h-8 rounded-full bg-[#D4AF37] text-[#050A14] flex items-center justify-center border-2 border-[#0E182A] shadow-sm">
+                    <Sparkles className="w-4 h-4 fill-current text-[#050A14]" />
+                  </span>
+                </div>
+                <p className="font-amiri text-base sm:text-lg text-[#FAF5EF] font-bold leading-relaxed mb-3" dir="rtl">
+                  وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ
+                </p>
+                <div className="w-12 h-px bg-[#D4AF37]/60 mx-auto my-3" />
+                <blockquote className="font-cormorant italic text-xs sm:text-sm text-[#E2E8F0] leading-relaxed">
+                  &ldquo;And among His signs is that He created for you spouses from among yourselves so that you may find tranquility in them, and He placed between you affection and mercy. Indeed in that are signs for a people who give thought.&rdquo;
+                </blockquote>
+                <span className="inline-block mt-2.5 font-cinzel text-[10px] tracking-[0.2em] uppercase text-[#D4AF37] font-bold">
+                  (Surah Ar-Rum 30:21)
+                </span>
+              </div>
+            </div>
+
+            {/* Scroll Down Indicator */}
+            <div className="pb-2 flex flex-col items-center justify-center opacity-75">
+              <span className="text-[10px] font-cinzel tracking-[0.25em] uppercase text-[#D4AF37] mb-1.5 font-semibold">
+                Scroll to View Invitation ♡
+              </span>
+              <div className="w-5 h-8 rounded-full border border-[#D4AF37] flex items-start justify-center p-1">
+                <span className="w-1.5 h-2.5 bg-[#D4AF37] rounded-full animate-bounce" />
+              </div>
+            </div>
+          </section>
+
           {/* Golden Arched Top Filigree */}
           <div className="pt-8 pb-4 px-6 text-center relative">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#D4AF37]/30 bg-[#0E182A]/70 backdrop-blur-md text-[#D4AF37] text-[11px] tracking-[0.25em] uppercase font-sans mb-3">
@@ -389,6 +434,38 @@ export default function QawwaliTemplate({ data, isSample = false, invitationId, 
               </button>
             )}
           </div>
+
+          {/* SECTION 7: SUNNAH DUA & FOOTER */}
+          <footer className="pt-8 pb-10 px-6 sm:px-8 text-center bg-gradient-to-b from-[#0A111F] via-[#070D18] to-[#040810] border-t border-[#D4AF37]/25">
+            <div className="max-w-xs mx-auto">
+              <h2 className="font-serif text-2xl sm:text-3xl text-[#FAF5EF] font-bold mb-2">We Eagerly Await You!</h2>
+
+              <div className="my-5 p-4 rounded-2xl bg-[#0E182A]/90 border border-[#D4AF37]/45 shadow-sm text-center">
+                <span className="inline-flex items-center gap-1.5 font-cinzel text-[10px] tracking-[0.25em] uppercase text-[#D4AF37] font-semibold mb-2">
+                  <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
+                  A Sacred Prayer
+                </span>
+                <p className="font-amiri text-base sm:text-lg text-[#FAF5EF] font-bold leading-relaxed mb-2" dir="rtl">
+                  بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ
+                </p>
+                <div className="w-10 h-0.5 bg-[#D4AF37]/50 mx-auto my-2" />
+                <p className="font-cormorant italic text-sm sm:text-base text-[#E2E8F0] leading-relaxed font-medium">
+                  &ldquo;May Allah bless this union, bind your hearts with lifelong affection and mercy, and make your home a sanctuary of peace.&rdquo;
+                </p>
+              </div>
+
+              <p className="font-cormorant italic text-base text-[#D4AF37]/90 mb-2">
+                With love, prayers &amp; eternal gratitude,
+              </p>
+              <p className="font-script text-4xl sm:text-5xl text-[#FAF5EF] mb-6">
+                {coupleName}
+              </p>
+
+              <p className="text-[10px] font-cinzel tracking-[0.25em] text-[#D4AF37] uppercase font-semibold mb-4">
+                {hashtag}
+              </p>
+            </div>
+          </footer>
 
           {/* Footer Card Credit */}
           <div className="text-center pb-8 pt-2 text-[#A4B3C6]/60 text-[10px] font-sans tracking-widest uppercase border-t border-[#D4AF37]/15 mx-6">
