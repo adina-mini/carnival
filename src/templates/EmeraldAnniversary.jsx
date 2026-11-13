@@ -12,44 +12,45 @@ import {
   X,
   CheckCircle2,
   Clock,
-  Gem
+  Wine,
+  Gift
 } from 'lucide-react';
 import { submitRsvp } from '@/lib/supabase';
 
-export default function EngagementTemplate({ data, isSample = false, invitationId }) {
-  const brideName = data?.bride_name || "Hira Tariq";
-  const groomName = data?.groom_name || "Zain Qureshi";
-  const coupleInitials = data?.couple_initials || "H & Z";
-  const coupleNames = `${brideName} & ${groomName}`;
-  const eventTitle = data?.event_title || "The Mangni & Ring Ceremony";
-  const eventSubtitle = data?.event_subtitle || "Two Souls, One Sacred Promise";
-  const eventDateIso = data?.event_date_iso || "2026-11-20T19:30:00";
-  const eventDateDisplay = data?.event_date_display || "Friday • November 20, 2026";
+export default function EmeraldAnniversary({ data, isSample = false, invitationId }) {
+  const husbandName = data?.groom_name || data?.husband_name || "Tariq Siddiqui";
+  const wifeName = data?.bride_name || data?.wife_name || "Nabila Siddiqui";
+  const coupleNames = `${husbandName} & ${wifeName}`;
+  const yearsTogether = data?.years_together || "25";
+  const eventTitle = data?.event_title || `${yearsTogether}th Silver Jubilee Anniversary Gala`;
+  const eventSubtitle = data?.event_subtitle || "Celebrating 25 Years of Unwavering Love & Companionship";
+  const eventDateIso = data?.event_date_iso || "2026-12-12T19:30:00";
+  const eventDateDisplay = data?.event_date_display || "Saturday • December 12, 2026";
   const eventTimeDisplay = data?.event_time_display || "Half Past Seven in the Evening";
   const cityDisplay = data?.city_display || "Lahore, Pakistan";
-  const venueName = data?.venue_name || "The Royal Palm Golf & Country Club • Babar Hall";
-  const venueAddress = data?.venue_address || "52 Canal Bank Road, Mughalpura, Lahore, Pakistan";
-  const venueMapUrl = data?.venue_map_url || "https://maps.google.com/?q=Royal+Palm+Lahore";
-  const hashtag = data?.hashtag || "#HIRAGOTZAINED";
+  const venueName = data?.venue_name || "The Emerald Courtyard • Pearl Continental";
+  const venueAddress = data?.venue_address || "Shahrah-e-Quaid-e-Azam, G.O.R. - I, Lahore, Pakistan";
+  const venueMapUrl = data?.venue_map_url || "https://maps.google.com/?q=Pearl+Continental+Lahore";
+  const hashtag = data?.hashtag || "#TARIQANDNABILA25";
 
   // Dedicated artwork slots
-  const heroImage = data?.hero_image || "/assets/engagement-couple.jpg";
-  const storyCollageImage = data?.story_collage_image || "/assets/engagement-story-collage.jpg";
+  const heroImage = data?.hero_image || "/assets/anniversary-couple.jpg";
+  const storyCollageImage = data?.story_collage_image || "/assets/anniversary-story-collage.jpg";
   const venueImage = data?.venue_image || "/assets/venue-hall.png";
 
   const schedule = data?.schedule || [
-    { time: "7:30 PM", tag: "Arrival", title: "Welcome & Rose Jasmine Sharbat", desc: "Arrival of families, scented rose water welcome, and fresh cardamom mocktails." },
-    { time: "8:15 PM", tag: "Mangni", title: "The Ring Exchange Ceremony", desc: "The exchanging of rings, exchanging of sweet mithai, and parental prayers of barakah.", highlight: true },
-    { time: "9:00 PM", tag: "Dawat", title: "Engagement Celebration Feast", desc: "Traditional banquet dinner with live BBQ sajji, mutton dum biryani, and pistachio kheer." },
-    { time: "10:30 PM", tag: "Blessings", title: "Family Portraits & Parting Duas", desc: "Capturing cherished memories with close family and concluding blessings." },
+    { time: "7:30 PM", tag: "Arrival", title: "Welcome & Sparkling Rose Mocktails", desc: "Arrival of family & friends in the candlelit foyer with live classical violin melodies." },
+    { time: "8:15 PM", tag: "Tribute", title: "Milestone Journey & Memory Reel", desc: "A nostalgic visual journey through 25 cherished years, family speeches, and toasts.", highlight: true },
+    { time: "9:00 PM", tag: "Banquet", title: "Grand Royal Anniversary Feast", desc: "An exquisite multi-course dinner featuring Mughlai specialties, Continental carving, and artisan sweets." },
+    { time: "10:30 PM", tag: "Celebration", title: "Silver Jubilee Cake Reveal & Duas", desc: "Tiered anniversary cake cutting, family photography, and heartfelt prayers for many more years together." },
   ];
 
-  // Palette from user artwork: Emerald Green, Charcoal, Antique Gold, Blush Rose
+  // Palette from user artwork: Emerald Green, Charcoal Grey, Antique Gold, Champagne Cream
   const dressCodeColors = [
-    { name: "Emerald Green", hex: "#0D3826" },
-    { name: "Charcoal Slate", hex: "#22252A" },
+    { name: "Emerald Green", hex: "#0E4D34" },
+    { name: "Charcoal Grey", hex: "#343A40" },
     { name: "Antique Gold", hex: "#C5A059" },
-    { name: "Blush Rose", hex: "#DDA5A9" },
+    { name: "Champagne Cream", hex: "#FAF6EE" },
   ];
 
   const [timeLeft, setTimeLeft] = useState({ days: '00', hours: '00', minutes: '00', seconds: '00' });
@@ -84,28 +85,28 @@ export default function EngagementTemplate({ data, isSample = false, invitationI
 
   const handleAddToCalendar = () => {
     const title = encodeURIComponent(`${coupleNames}'s ${eventTitle}`);
-    const details = encodeURIComponent(`You are cordially invited to celebrate the Engagement of ${coupleNames}.`);
+    const details = encodeURIComponent(`You are cordially invited to celebrate ${coupleNames}'s ${eventTitle}.`);
     const location = encodeURIComponent(`${venueName}, ${venueAddress}`);
     window.open(`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}`, '_blank');
   };
 
   return (
-    <div className="bg-[#0B1510] text-gray-800 antialiased font-sans min-h-screen overflow-x-hidden relative selection:bg-[#0D3826] selection:text-white">
+    <div className="bg-[#09140F] text-gray-800 antialiased font-sans min-h-screen overflow-x-hidden relative selection:bg-[#0E4D34] selection:text-white">
 
       {isSample && (
-        <div className="sticky top-0 z-40 bg-[#13231B]/95 backdrop-blur-md border-b border-[#C5A059]/40 text-[#E5D298] text-center py-2 px-4 text-xs font-cinzel tracking-wider">
-          💍 Sample Template Showcase &bull; Mohabbat &amp; Noor • Engagement &amp; Mangni
+        <div className="sticky top-0 z-40 bg-[#10231B]/95 backdrop-blur-md border-b border-[#C5A059]/40 text-[#E5D298] text-center py-2 px-4 text-xs font-cinzel tracking-wider">
+          💎 Sample Template Showcase &bull; Emerald &amp; Charcoal • Silver Jubilee Anniversary
         </div>
       )}
 
       <main className="relative z-10 w-full min-h-screen py-0 sm:py-10 flex justify-center items-start">
-        <div className="w-full sm:max-w-[460px] bg-[#FAF7F2] text-[#1F121C] sm:rounded-[36px] shadow-[0_25px_90px_rgba(0,0,0,0.92)] border-0 sm:border-2 sm:border-[#C5A059]/40 overflow-hidden relative">
+        <div className="w-full sm:max-w-[460px] bg-[#FAF8F3] text-[#1C261E] sm:rounded-[36px] shadow-[0_25px_90px_rgba(0,0,0,0.92)] border-0 sm:border-2 sm:border-[#C5A059]/40 overflow-hidden relative">
 
           {/* TOP ORNATE CORNER BORDER */}
-          <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#22252A] via-[#C5A059] to-[#0D3826]" />
+          <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#0E4D34] via-[#C5A059] to-[#0E4D34]" />
 
           {/* PAGE 1: SPIRITUAL DEDICATION (BISMILLAH & SURAH AR-RUM 30:21) */}
-          <section className="relative min-h-[92dvh] sm:min-h-[720px] flex flex-col justify-between items-center pt-10 pb-8 px-6 sm:px-8 text-center bg-gradient-to-b from-[#FAF7F2] via-[#FAF7F2] to-[#FAF7F2]">
+          <section className="relative min-h-[92dvh] sm:min-h-[720px] flex flex-col justify-between items-center pt-10 pb-8 px-6 sm:px-8 text-center bg-gradient-to-b from-[#FAF8F3] via-[#FAF8F3] to-[#FAF8F3]">
             {/* Ornate Top Header Filigree */}
             <div className="flex items-center justify-center pt-2">
               <svg className="w-36 h-7 text-[#C5A059] opacity-90" viewBox="0 0 160 30" fill="currentColor">
@@ -114,22 +115,22 @@ export default function EngagementTemplate({ data, isSample = false, invitationI
             </div>
 
             <div className="my-auto py-2 w-full flex flex-col items-center">
-              <p className="font-amiri text-lg sm:text-xl text-[#0D3826] font-normal tracking-wide mb-5 select-none">
+              <p className="font-amiri text-lg sm:text-xl text-[#0E4D34] font-normal tracking-wide mb-5 select-none">
                 بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
               </p>
 
               {/* Quranic Verse (Surah Ar-Rum 30:21) Card */}
               <div className="max-w-xs sm:max-w-sm mx-auto p-5 sm:p-6 rounded-2xl bg-gradient-to-b from-[#F2ECE1] to-[#E5DDD0] border border-[#C5A059]/50 shadow-sm relative">
                 <div className="flex items-center justify-center -mt-8 mb-2">
-                  <span className="w-8 h-8 rounded-full bg-[#C5A059] text-[#FAF7F2] flex items-center justify-center border-2 border-[#FAF7F2] shadow-sm">
-                    <Sparkles className="w-4 h-4 fill-current" />
+                  <span className="w-8 h-8 rounded-full bg-[#C5A059] text-[#FAF8F3] flex items-center justify-center border-2 border-[#FAF8F3] shadow-sm">
+                    <Sparkles className="w-4 h-4 fill-current text-[#FAF8F3]" />
                   </span>
                 </div>
-                <p className="font-amiri text-base sm:text-lg text-[#0D3826] font-bold leading-relaxed mb-3" dir="rtl">
+                <p className="font-amiri text-base sm:text-lg text-[#0D261B] font-bold leading-relaxed mb-3" dir="rtl">
                   وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ
                 </p>
                 <div className="w-12 h-px bg-[#C5A059]/60 mx-auto my-3" />
-                <blockquote className="font-cormorant italic text-xs sm:text-sm text-[#1F121C] leading-relaxed">
+                <blockquote className="font-cormorant italic text-xs sm:text-sm text-[#1C261E] leading-relaxed">
                   &ldquo;And among His signs is that He created for you spouses from among yourselves so that you may find tranquility in them, and He placed between you affection and mercy. Indeed in that are signs for a people who give thought.&rdquo;
                 </blockquote>
                 <span className="inline-block mt-2.5 font-cinzel text-[10px] tracking-[0.2em] uppercase text-[#C5A059] font-bold">
@@ -153,31 +154,27 @@ export default function EngagementTemplate({ data, isSample = false, invitationI
           <header className="pt-10 pb-6 px-6 text-center relative">
             <div className="flex justify-center items-center gap-2 mb-3">
               <span className="h-[1px] w-8 bg-[#C5A059]/50"></span>
-              <Gem className="w-4 h-4 text-[#C5A059]" />
+              <Sparkles className="w-4 h-4 text-[#C5A059]" />
               <span className="h-[1px] w-8 bg-[#C5A059]/50"></span>
             </div>
 
-            <p className="font-arabic text-2xl text-[#0D3826] leading-loose">
-              بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+            <p className="font-cinzel text-[10px] uppercase tracking-[0.25em] text-[#0E4D34] font-bold">
+              {yearsTogether} Years of Timeless Devotion
             </p>
 
-            <p className="font-cinzel text-[10px] uppercase tracking-[0.25em] text-[#22252A] font-bold mt-1">
-              Together With Their Families
-            </p>
-
-            <h1 className="font-serif text-3xl sm:text-4xl text-[#0D3826] font-bold mt-2 tracking-wide">
-              {brideName}
+            <h1 className="font-serif text-3xl sm:text-4xl text-[#0D261B] font-bold mt-2 tracking-wide">
+              {husbandName}
             </h1>
             <p className="font-script text-3xl text-[#C5A059] my-1">&amp;</p>
-            <h1 className="font-serif text-3xl sm:text-4xl text-[#22252A] font-bold tracking-wide">
-              {groomName}
+            <h1 className="font-serif text-3xl sm:text-4xl text-[#0D261B] font-bold tracking-wide">
+              {wifeName}
             </h1>
 
             <p className="font-sans text-xs text-gray-600 mt-2">
-              Cordially invite you to celebrate the joyous occasion of their
+              Together with their children &amp; family, invite you to celebrate their
             </p>
 
-            <div className="mt-3 inline-block px-3.5 py-1 rounded-full bg-[#EBF2ED] border border-[#C5A059]/30 text-[10px] font-cinzel uppercase tracking-widest text-[#0D3826] font-bold">
+            <div className="mt-3 inline-block px-3.5 py-1 rounded-full bg-[#E8F1EC] border border-[#C5A059]/30 text-[10px] font-cinzel uppercase tracking-widest text-[#0E4D34] font-bold">
               {eventTitle}
             </div>
           </header>
@@ -185,56 +182,67 @@ export default function EngagementTemplate({ data, isSample = false, invitationI
           {/* HERO COUPLE ARTWORK (Royal Dome / Mehrab Arch) */}
           <section className="px-6 py-2">
             {heroImage && (
-              <div className="relative w-64 sm:w-72 mx-auto my-3 rounded-t-full rounded-b-2xl border-2 border-[#C5A059]/60 p-2 shadow-2xl bg-gradient-to-b from-[#FAF7F2] via-white to-[#F2F6F3]">
-                <div className="w-full aspect-[4/5] rounded-t-full rounded-b-xl overflow-hidden relative shadow-inner bg-[#F2F6F3]">
+              <div className="relative w-64 sm:w-72 mx-auto my-3 rounded-t-full rounded-b-2xl border-2 border-[#C5A059]/60 p-2 shadow-2xl bg-gradient-to-b from-[#FAF7F2] via-white to-[#E8F1EC]">
+                <div className="w-full aspect-[4/5] rounded-t-full rounded-b-xl overflow-hidden relative shadow-inner bg-[#E8F1EC]">
                   <img
                     src={heroImage}
                     alt={coupleNames}
                     className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105"
                   />
                   <div className="absolute inset-0 rounded-t-full rounded-b-xl ring-1 ring-inset ring-[#C5A059]/35 pointer-events-none" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1F121C]/70 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#09140F]/70 via-transparent to-transparent pointer-events-none" />
 
                   {/* Bottom Overlay Label */}
                   <div className="absolute bottom-3 left-3 right-3 text-center text-white">
                     <p className="font-cinzel text-[10px] tracking-[0.25em] uppercase text-[#E5D298] font-bold drop-shadow">
-                      The Ring Exchange
+                      Silver Jubilee &bull; 25 Years
                     </p>
                     <p className="font-serif text-base font-bold text-white drop-shadow">
-                      {coupleInitials} &bull; Forever Begins Today
+                      A Lifetime of Togetherness
                     </p>
                   </div>
                 </div>
                 <div className="mt-2 text-center">
-                  <span className="font-cinzel text-[10px] tracking-[0.25em] text-[#0D3826] uppercase font-bold">
-                    A Sacred Promise of Love
+                  <span className="font-cinzel text-[10px] tracking-[0.25em] text-[#0E4D34] uppercase font-bold">
+                    Celebrating 25 Blessed Years
                   </span>
                 </div>
               </div>
             )}
           </section>
 
-          {/* DEDICATION CARD */}
-          <section className="px-6 py-4 text-center">
-            <div className="p-5 rounded-2xl bg-[#F2F6F3] border border-[#C5A059]/30 shadow-inner">
+          {/* MILESTONE STATS */}
+          <section className="px-6 py-4">
+            <div className="p-5 rounded-2xl bg-[#E8F1EC] border border-[#C5A059]/30 text-center">
               <Heart className="w-5 h-5 text-[#C5A059] mx-auto mb-2 opacity-90 fill-[#C5A059]/20" />
-              <p className="font-serif text-xs italic text-[#0D3826] leading-relaxed mb-1">
-                &ldquo;From this day forward, as our promises are spoken and rings are exchanged, we step hand-in-hand onto the threshold of a lifetime together.&rdquo;
+              <p className="font-serif text-sm italic text-[#143628] leading-relaxed mb-3">
+                &ldquo;Love does not just happen; it is built through patience, shared memories, laughter, and grace across 25 beautiful years.&rdquo;
               </p>
-              <p className="font-cinzel text-[9px] uppercase tracking-widest text-[#22252A] mt-2 font-bold">
-                {hashtag}
-              </p>
+              <div className="grid grid-cols-3 gap-2 pt-2 border-t border-[#0E4D34]/20">
+                <div>
+                  <p className="font-serif text-base font-bold text-[#0E4D34]">25</p>
+                  <p className="text-[9px] uppercase tracking-wider text-gray-600 font-semibold">Years Blessed</p>
+                </div>
+                <div>
+                  <p className="font-serif text-base font-bold text-[#0E4D34]">300</p>
+                  <p className="text-[9px] uppercase tracking-wider text-gray-600 font-semibold">Months Of Love</p>
+                </div>
+                <div>
+                  <p className="font-serif text-base font-bold text-[#0E4D34]">∞</p>
+                  <p className="text-[9px] uppercase tracking-wider text-gray-600 font-semibold">Cherished Memories</p>
+                </div>
+              </div>
             </div>
           </section>
 
           {/* DATE & TIME CARD */}
           <section className="px-6 py-2">
             <div className="p-6 rounded-3xl bg-white border border-[#C5A059]/30 shadow-md text-center">
-              <div className="flex items-center justify-center gap-2 text-[#22252A] text-xs font-cinzel uppercase tracking-widest mb-2 font-semibold">
+              <div className="flex items-center justify-center gap-2 text-[#0E4D34] text-xs font-cinzel uppercase tracking-widest mb-2 font-semibold">
                 <Clock className="w-4 h-4 text-[#C5A059]" />
-                Event Date &amp; Timings
+                Anniversary Gala Date
               </div>
-              <p className="font-serif text-xl font-bold text-[#1F121C]">
+              <p className="font-serif text-xl font-bold text-[#0D261B]">
                 {eventDateDisplay}
               </p>
               <p className="text-xs text-gray-600 font-sans mt-1">
@@ -249,9 +257,9 @@ export default function EngagementTemplate({ data, isSample = false, invitationI
                   { val: timeLeft.minutes, label: 'Mins' },
                   { val: timeLeft.seconds, label: 'Secs' },
                 ].map((item, i) => (
-                  <div key={i} className="py-2.5 px-1 rounded-xl bg-[#F2F6F3] border border-[#C5A059]/25 text-center">
-                    <p className="font-serif text-lg font-bold text-[#0D3826]">{item.val}</p>
-                    <p className="text-[9px] uppercase tracking-wider text-[#22252A] font-semibold">{item.label}</p>
+                  <div key={i} className="py-2.5 px-1 rounded-xl bg-[#E8F1EC] border border-[#C5A059]/25 text-center">
+                    <p className="font-serif text-lg font-bold text-[#0E4D34]">{item.val}</p>
+                    <p className="text-[9px] uppercase tracking-wider text-[#143628] font-semibold">{item.label}</p>
                   </div>
                 ))}
               </div>
@@ -259,7 +267,7 @@ export default function EngagementTemplate({ data, isSample = false, invitationI
               {/* ADD TO CALENDAR */}
               <button
                 onClick={handleAddToCalendar}
-                className="mt-5 w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#0D3826] text-[#FAF7F2] font-cinzel text-xs font-semibold tracking-wider hover:bg-[#082418] transition-colors shadow-sm"
+                className="mt-5 w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#0E4D34] text-[#FAF8F3] font-cinzel text-xs font-semibold tracking-wider hover:bg-[#0A3826] transition-colors shadow-sm"
               >
                 <CalendarPlus className="w-4 h-4 text-[#C5A059]" />
                 Add to Google Calendar
@@ -270,11 +278,11 @@ export default function EngagementTemplate({ data, isSample = false, invitationI
           {/* CEREMONY SCHEDULE / ITINERARY */}
           <section className="px-6 py-4">
             <div className="text-center mb-5">
-              <p className="font-cinzel text-[10px] uppercase tracking-[0.25em] text-[#22252A] font-bold">
+              <p className="font-cinzel text-[10px] uppercase tracking-[0.25em] text-[#0E4D34] font-bold">
                 Program Order
               </p>
-              <h3 className="font-serif text-2xl font-bold text-[#1F121C] mt-1">
-                The Mangni Itinerary
+              <h3 className="font-serif text-2xl font-bold text-[#0D261B] mt-1">
+                The Gala Evening
               </h3>
             </div>
 
@@ -284,19 +292,19 @@ export default function EngagementTemplate({ data, isSample = false, invitationI
                   key={idx}
                   className={`p-4 rounded-2xl border transition-all ${
                     item.highlight
-                      ? 'bg-gradient-to-r from-[#EBF2ED] to-[#FAF7F2] border-[#C5A059] shadow-md'
+                      ? 'bg-gradient-to-r from-[#E8F1EC] to-[#FAF8F3] border-[#C5A059] shadow-md'
                       : 'bg-white border-[#C5A059]/25'
                   }`}
                 >
                   <div className="flex items-start justify-between gap-3">
-                    <span className="inline-block px-2.5 py-1 rounded-md bg-[#0D3826] text-[#E5D298] text-[10px] font-cinzel font-bold tracking-wider">
+                    <span className="inline-block px-2.5 py-1 rounded-md bg-[#0E4D34] text-[#E5D298] text-[10px] font-cinzel font-bold tracking-wider">
                       {item.time}
                     </span>
-                    <span className="text-[10px] uppercase tracking-widest font-semibold text-[#22252A]">
+                    <span className="text-[10px] uppercase tracking-widest font-semibold text-[#0E4D34]">
                       {item.tag}
                     </span>
                   </div>
-                  <h4 className="font-serif text-base font-bold text-[#1F121C] mt-2">
+                  <h4 className="font-serif text-base font-bold text-[#0D261B] mt-2">
                     {item.title}
                   </h4>
                   <p className="text-xs text-gray-600 mt-1 leading-relaxed">
@@ -309,15 +317,15 @@ export default function EngagementTemplate({ data, isSample = false, invitationI
 
           {/* DRESS CODE PALETTE */}
           <section className="px-6 py-4">
-            <div className="p-5 rounded-2xl bg-[#F2F6F3] border border-[#C5A059]/30 text-center">
-              <p className="font-cinzel text-[10px] uppercase tracking-[0.2em] text-[#22252A] font-bold mb-1">
-                Ceremony Palette
+            <div className="p-5 rounded-2xl bg-[#E8F1EC] border border-[#C5A059]/30 text-center">
+              <p className="font-cinzel text-[10px] uppercase tracking-[0.2em] text-[#0E4D34] font-bold mb-1">
+                Aesthetic Palette
               </p>
-              <h4 className="font-serif text-base font-bold text-[#1F121C] mb-1">
-                Recommended Attire Colors
+              <h4 className="font-serif text-base font-bold text-[#0D261B] mb-1">
+                Formal Evening Attire
               </h4>
               <p className="text-xs text-gray-600 mb-4">
-                Rich emerald green shararas, charcoal slate bandhgalas, and antique gold accents.
+                Rich emerald jewel tones, sharp charcoal suits, and antique gold elegance.
               </p>
               <div className="grid grid-cols-4 gap-2">
                 {dressCodeColors.map((col, idx) => (
@@ -326,7 +334,7 @@ export default function EngagementTemplate({ data, isSample = false, invitationI
                       className="w-10 h-10 rounded-full shadow-md border-2 border-white mb-1.5"
                       style={{ backgroundColor: col.hex }}
                     />
-                    <span className="text-[9px] font-semibold text-[#1F121C] text-center leading-tight">
+                    <span className="text-[9px] font-semibold text-[#1C261E] text-center leading-tight">
                       {col.name}
                     </span>
                   </div>
@@ -347,7 +355,7 @@ export default function EngagementTemplate({ data, isSample = false, invitationI
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 <div className="absolute bottom-3 left-4 right-4 text-white">
                   <p className="font-cinzel text-[10px] uppercase tracking-widest text-[#E5D298] font-bold">
-                    Celebration Venue
+                    Gala Venue
                   </p>
                   <p className="font-serif text-sm font-bold truncate">
                     {venueName}
@@ -365,7 +373,7 @@ export default function EngagementTemplate({ data, isSample = false, invitationI
                   href={venueMapUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#0D3826] hover:bg-[#082418] text-[#FAF7F2] font-cinzel text-xs font-semibold tracking-wider transition-colors shadow-sm"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#0E4D34] hover:bg-[#0A3826] text-[#FAF8F3] font-cinzel text-xs font-semibold tracking-wider transition-colors shadow-sm"
                 >
                   <Navigation className="w-4 h-4 text-[#C5A059]" />
                   Open in Google Maps
@@ -374,19 +382,19 @@ export default function EngagementTemplate({ data, isSample = false, invitationI
             </div>
           </section>
 
-          {/* OUR STORY & MEMORIES COLLAGE */}
+          {/* OUR 25-YEAR JOURNEY MEMORIES COLLAGE */}
           {storyCollageImage && (
             <section className="px-6 py-6">
               <div className="text-center mb-4">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E5ECE8] text-[#0D3826] text-[10px] font-cinzel uppercase tracking-widest font-bold">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E5ECE8] text-[#0E4D34] text-[10px] font-cinzel uppercase tracking-widest font-bold">
                   <Heart className="w-3 h-3 text-[#C5A059] fill-[#C5A059]" />
-                  Our Journey Together
+                  A Quarter Century of Love
                 </div>
-                <h3 className="font-serif text-2xl font-bold text-[#1F121C] mt-2">
-                  Cherished Memories
+                <h3 className="font-serif text-2xl font-bold text-[#1C261E] mt-2">
+                  Our Milestone Memories
                 </h3>
                 <p className="text-[11px] text-gray-600 font-sans mt-0.5">
-                  From shared laughter and quiet conversations to forever promises.
+                  Through every shared sunrise, laughter, and season &bull; 25 beautiful years together.
                 </p>
               </div>
 
@@ -394,13 +402,13 @@ export default function EngagementTemplate({ data, isSample = false, invitationI
                 <div className="rounded-2xl overflow-hidden">
                   <img
                     src={storyCollageImage}
-                    alt="Our Journey Story Collage"
+                    alt="25 Years of Memories Collage"
                     className="w-full h-auto object-cover"
                   />
                 </div>
-                <div className="p-3 text-center bg-[#FAF7F2]">
-                  <p className="font-script text-2xl text-[#0D3826]">
-                    Where It All Began &bull; Forever Ahead
+                <div className="p-3 text-center bg-[#FAF8F3]">
+                  <p className="font-script text-2xl text-[#0E4D34]">
+                    From Youthful Days to Silver Jubilee &bull; Together Always
                   </p>
                 </div>
               </div>
@@ -411,39 +419,39 @@ export default function EngagementTemplate({ data, isSample = false, invitationI
           <section className="px-6 py-6 text-center">
             <button
               onClick={() => setRsvpOpen(true)}
-              className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#C5A059] via-[#DFC270] to-[#C5A059] hover:from-[#DFC270] hover:to-[#C5A059] text-[#240B19] font-cinzel text-xs font-bold uppercase tracking-widest shadow-xl transition-transform active:scale-95"
+              className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#C5A059] via-[#DFC270] to-[#C5A059] hover:from-[#DFC270] hover:to-[#C5A059] text-[#0D261B] font-cinzel text-xs font-bold uppercase tracking-widest shadow-xl transition-transform active:scale-95"
             >
-              Respond to Invitation (RSVP)
+              Confirm Attendance (RSVP)
             </button>
           </section>
 
           {/* SECTION 7: SUNNAH DUA & FOOTER */}
-          <footer className="pt-8 pb-14 px-6 sm:px-8 text-center bg-gradient-to-b from-[#FAF7F2] via-[#F2ECE1] to-[#E5DDD0]">
+          <footer className="pt-8 pb-14 px-6 sm:px-8 text-center bg-gradient-to-b from-[#FAF8F3] via-[#F2ECE1] to-[#E5DDD0]">
             <div className="max-w-xs mx-auto">
-              <h2 className="font-serif text-2xl sm:text-3xl text-[#0D3826] font-bold mb-2">We Eagerly Await You!</h2>
+              <h2 className="font-serif text-2xl sm:text-3xl text-[#0D261B] font-bold mb-2">We Eagerly Await You!</h2>
 
               <div className="my-5 p-4 rounded-2xl bg-white/80 border border-[#C5A059]/45 shadow-sm text-center">
                 <span className="inline-flex items-center gap-1.5 font-cinzel text-[10px] tracking-[0.25em] uppercase text-[#735D30] font-semibold mb-2">
                   <Sparkles className="w-3.5 h-3.5" />
                   A Sacred Prayer
                 </span>
-                <p className="font-amiri text-base sm:text-lg text-[#0D3826] font-bold leading-relaxed mb-2" dir="rtl">
+                <p className="font-amiri text-base sm:text-lg text-[#0D261B] font-bold leading-relaxed mb-2" dir="rtl">
                   بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ
                 </p>
                 <div className="w-10 h-0.5 bg-[#C5A059]/50 mx-auto my-2" />
-                <p className="font-cormorant italic text-sm sm:text-base text-[#1F121C] leading-relaxed font-medium">
+                <p className="font-cormorant italic text-sm sm:text-base text-[#1C261E] leading-relaxed font-medium">
                   &ldquo;May Allah bless this union, bind your hearts with lifelong affection and mercy, and make your home a sanctuary of peace.&rdquo;
                 </p>
               </div>
 
-              <p className="font-cormorant italic text-base text-[#596D5F] mb-2">
+              <p className="font-cormorant italic text-base text-[#0E4D34]/80 mb-2">
                 With love, prayers &amp; eternal gratitude,
               </p>
-              <p className="font-script text-4xl sm:text-5xl text-[#0D3826] mb-6">
-                {brideName.split(' ')[0]} &amp; {groomName.split(' ')[0]}
+              <p className="font-script text-4xl sm:text-5xl text-[#0D261B] mb-6">
+                {husbandName.split(' ')[0]} &amp; {wifeName.split(' ')[0]}
               </p>
 
-              <p className="text-[10px] font-cinzel tracking-[0.25em] text-[#596D5F] uppercase font-semibold">
+              <p className="text-[10px] font-cinzel tracking-[0.25em] text-[#0E4D34] uppercase font-semibold">
                 {hashtag}
               </p>
             </div>
@@ -454,20 +462,20 @@ export default function EngagementTemplate({ data, isSample = false, invitationI
       {/* RSVP MODAL */}
       {rsvpOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
-          <div className="relative w-full max-w-sm bg-white rounded-3xl border-2 border-[#C5A059] p-6 text-[#1F121C] shadow-2xl">
+          <div className="relative w-full max-w-sm bg-white rounded-3xl border-2 border-[#C5A059] p-6 text-[#1C261E] shadow-2xl">
             <button onClick={() => setRsvpOpen(false)} className="absolute top-4 right-4 p-1 text-gray-400 hover:text-black">
               <X className="w-5 h-5" />
             </button>
             {rsvpSubmitted ? (
               <div className="text-center py-6">
-                <CheckCircle2 className="w-12 h-12 text-[#0D3826] mx-auto mb-2" />
-                <h3 className="font-serif text-xl font-bold text-[#0D3826]">Attendance Confirmed!</h3>
-                <p className="text-xs text-gray-600 mt-1">Your response has been recorded with delight. We look forward to celebrating together.</p>
+                <CheckCircle2 className="w-12 h-12 text-[#0E4D34] mx-auto mb-2" />
+                <h3 className="font-serif text-xl font-bold text-[#0E4D34]">RSVP Confirmed!</h3>
+                <p className="text-xs text-gray-600 mt-1">Thank you for being part of this milestone celebration with us.</p>
               </div>
             ) : (
               <div className="space-y-4">
-                <h3 className="font-serif text-xl font-bold text-center text-[#0D3826]">Engagement Ceremony RSVP</h3>
-                <p className="text-xs text-center text-gray-600">Please confirm your attendance for {coupleNames}&apos;s Mangni.</p>
+                <h3 className="font-serif text-xl font-bold text-center text-[#0E4D34]">Anniversary Gala RSVP</h3>
+                <p className="text-xs text-center text-gray-600">Please confirm your presence for {coupleNames}&apos;s celebration.</p>
                 <div>
                   <label className="block text-xs font-semibold mb-1">Guest / Family Name</label>
                   <input
@@ -475,8 +483,8 @@ export default function EngagementTemplate({ data, isSample = false, invitationI
                     required
                     value={rsvpForm.name}
                     onChange={(e) => setRsvpForm({ ...rsvpForm, name: e.target.value })}
-                    placeholder="e.g. Mr. & Mrs. Tariq"
-                    className="w-full px-3 py-2 text-xs rounded-xl border border-[#C5A059] focus:outline-none focus:ring-1 focus:ring-[#0D3826]"
+                    placeholder="e.g. Mr. & Mrs. Farhan"
+                    className="w-full px-3 py-2 text-xs rounded-xl border border-[#C5A059] focus:outline-none focus:ring-1 focus:ring-[#0E4D34]"
                   />
                 </div>
                 <div>
@@ -493,13 +501,13 @@ export default function EngagementTemplate({ data, isSample = false, invitationI
                   </select>
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold mb-1">Congratulations Note (Optional)</label>
+                  <label className="block text-xs font-semibold mb-1">Congratulatory Message (Optional)</label>
                   <input
                     type="text"
                     value={rsvpForm.wish}
                     onChange={(e) => setRsvpForm({ ...rsvpForm, wish: e.target.value })}
-                    placeholder="Wishing you a blessed journey..."
-                    className="w-full px-3 py-2 text-xs rounded-xl border border-[#C5A059] focus:outline-none focus:ring-1 focus:ring-[#0D3826]"
+                    placeholder="Wishing you a lifetime of joy..."
+                    className="w-full px-3 py-2 text-xs rounded-xl border border-[#C5A059] focus:outline-none focus:ring-1 focus:ring-[#0E4D34]"
                   />
                 </div>
                 <button
@@ -519,7 +527,7 @@ export default function EngagementTemplate({ data, isSample = false, invitationI
                     }
                     setTimeout(() => { setRsvpOpen(false); setRsvpSubmitted(false); }, 2200);
                   }}
-                  className="w-full py-3 rounded-xl bg-[#0D3826] text-[#FAF7F2] font-cinzel text-xs font-bold uppercase tracking-wider shadow-md hover:bg-[#082418] transition-colors"
+                  className="w-full py-3 rounded-xl bg-[#0E4D34] text-[#FAF8F3] font-cinzel text-xs font-bold uppercase tracking-wider shadow-md"
                 >
                   Confirm Attendance
                 </button>
@@ -532,8 +540,8 @@ export default function EngagementTemplate({ data, isSample = false, invitationI
       {/* AMBIENT AUDIO TOGGLE */}
       <button
         onClick={() => setIsMuted(!isMuted)}
-        className="fixed bottom-5 right-5 z-40 p-3 rounded-full bg-[#0B1510] text-[#C5A059] border border-[#C5A059]/50 shadow-2xl"
-        title={isMuted ? "Play Sitar & Flute" : "Mute Music"}
+        className="fixed bottom-5 right-5 z-40 p-3 rounded-full bg-[#10231B] text-[#C5A059] border border-[#C5A059]/50 shadow-2xl"
+        title={isMuted ? "Play Classical Violin" : "Mute Music"}
       >
         {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
       </button>
@@ -541,3 +549,6 @@ export default function EngagementTemplate({ data, isSample = false, invitationI
     </div>
   );
 }
+
+
+

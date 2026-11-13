@@ -1,21 +1,21 @@
-import RoyalBurgundyTemplate from './RoyalBurgundyTemplate';
-import IvorySageBaratTemplate from './IvorySageBaratTemplate';
-import IvorySageWalimaTemplate from './IvorySageWalimaTemplate';
-import EmeraldRoyalBaratTemplate from './EmeraldRoyalBaratTemplate';
-import EngagementTemplate from './EngagementTemplate';
-import FestiveMehndiTemplate from './FestiveMehndiTemplate';
-import NoorWalimaTemplate from './NoorWalimaTemplate';
-import GirlBirthdayTemplate from './GirlBirthdayTemplate';
-import GirlBirthdayNoirTemplate from './GirlBirthdayNoirTemplate';
-import BoyBirthdayTemplate from './BoyBirthdayTemplate';
-import AqiqahBoyTemplate from './AqiqahBoyTemplate';
-import AqiqahGirlTemplate from './AqiqahGirlTemplate';
-import EmeraldAnniversaryTemplate from './EmeraldAnniversaryTemplate';
+import RoyalBurgundy from './RoyalBurgundy';
+import IvorySageBarat from './IvorySageBarat';
+import IvorySageWalima from './IvorySageWalima';
+import EmeraldRoyalBarat from './EmeraldRoyalBarat';
+import Engagement from './Engagement';
+import FestiveMehndi from './FestiveMehndi';
+import NoorWalima from './NoorWalima';
+import GirlBirthday from './GirlBirthday';
+import GirlBirthdayNoir from './GirlBirthdayNoir';
+import BoyBirthday from './BoyBirthday';
+import AqiqahBoy from './AqiqahBoy';
+import AqiqahGirl from './AqiqahGirl';
+import EmeraldAnniversary from './EmeraldAnniversary';
 import CelestialMidnightTemplate from './CelestialMidnightTemplate';
-import QawwaliTemplate from './QawwaliTemplate';
-import MayunTemplate from './MayunTemplate';
-import BridalShowerTemplate from './BridalShowerTemplate';
-import DynamicCustomTemplate from './DynamicCustomTemplate';
+import Qawwali from './Qawwali';
+import Mayun from './Mayun';
+import BridalShower from './BridalShower';
+import DynamicCustom from './DynamicCustom';
 import { getCustomTemplatesSync } from '@/lib/customTemplates';
 
 export const TEMPLATES = [
@@ -57,7 +57,7 @@ export const TEMPLATES = [
         { time: "4:00 PM", tag: "Grand Pavilion", title: "Rukhsati • Farewell", desc: "Heartfelt prayers and farewell with love and blessings.", icon: "sparkles" },
       ],
     },
-    Component: RoyalBurgundyTemplate,
+    Component: RoyalBurgundy,
   },
   {
     id: 'ivory-sage-barat',
@@ -97,7 +97,7 @@ export const TEMPLATES = [
         { time: "4:30 PM", tag: "Rukhsati", title: "Rukhsati & Duas", desc: "Farewell under the Holy Quran with cherished family prayers and tears of joy." },
       ],
     },
-    Component: IvorySageBaratTemplate,
+    Component: IvorySageBarat,
   },
   {
     id: 'emerald-royal-barat',
@@ -136,7 +136,7 @@ export const TEMPLATES = [
         { time: "10:30 PM", tag: "Rukhsati", title: "Rukhsati Under the Holy Quran", desc: "Farewell under the protection of the Holy Quran, parting tears of gratitude, and family blessings." },
       ],
     },
-    Component: EmeraldRoyalBaratTemplate,
+    Component: EmeraldRoyalBarat,
   },
   {
     id: 'ivory-sage-walima',
@@ -175,7 +175,7 @@ export const TEMPLATES = [
         { time: "11:00 PM", tag: "Blessings", title: "Cake Cutting & Cherished Duas", desc: "Cherished family photography, cake cutting ceremony, and concluding prayers." },
       ],
     },
-    Component: IvorySageWalimaTemplate,
+    Component: IvorySageWalima,
   },
   {
     id: 'noor-walima',
@@ -214,7 +214,7 @@ export const TEMPLATES = [
         { time: "11:00 PM", tag: "Blessings", title: "Cake Cutting & Closing Blessings", desc: "Cherished moments, family photography, and heartfelt prayers." },
       ],
     },
-    Component: NoorWalimaTemplate,
+    Component: NoorWalima,
   },
   {
     id: 'festive-mehndi',
@@ -253,7 +253,7 @@ export const TEMPLATES = [
         { time: "10:30 PM", tag: "Feast", title: "Mughlai BBQ & Festive Delicacies", desc: "Live sajji, fresh hot jalebis, and traditional Kashmiri chai." },
       ],
     },
-    Component: FestiveMehndiTemplate,
+    Component: FestiveMehndi,
   },
   {
     id: 'girl-birthday',
@@ -291,7 +291,7 @@ export const TEMPLATES = [
         { time: "8:00 PM", tag: "Celebration", title: "Music, Birthday Toasts & Dancing", desc: "Celebratory speeches, memory book signing, and dancing to favorite indie acoustic tracks." },
       ],
     },
-    Component: GirlBirthdayTemplate,
+    Component: GirlBirthday,
   },
   {
     id: 'girl-birthday-noir',
@@ -329,7 +329,7 @@ export const TEMPLATES = [
         { time: "11:00 PM", tag: "Party", title: "Rooftop Beats & Gourmet Bites", desc: "Gourmet slider bar, artisanal sushi, dessert bar, and live DJ set." },
       ],
     },
-    Component: GirlBirthdayNoirTemplate,
+    Component: GirlBirthdayNoir,
   },
   {
     id: 'boy-birthday-noir',
@@ -367,7 +367,7 @@ export const TEMPLATES = [
         { time: "10:30 PM", tag: "Feast", title: "Rooftop Charcoal BBQ & Desserts", desc: "Artisanal grilled steaks, live BBQ sliders, gourmet fries, and Belgian waffle bar." },
       ],
     },
-    Component: BoyBirthdayTemplate,
+    Component: BoyBirthday,
   },
   {
     id: 'aqiqah-boy',
@@ -406,7 +406,7 @@ export const TEMPLATES = [
         { time: "4:00 PM", tag: "Blessings", title: "Family Photography & Duas", desc: "Cherished moments, family pictures with baby Ibrahim, and parting blessings." },
       ],
     },
-    Component: AqiqahBoyTemplate,
+    Component: AqiqahBoy,
   },
   {
     id: 'aqiqah-girl',
@@ -445,11 +445,11 @@ export const TEMPLATES = [
         { time: "4:00 PM", tag: "Blessings", title: "Family Portraits & Parting Duas", desc: "Cherished moments, family pictures with baby Anaya, and heartfelt prayers." },
       ],
     },
-    Component: AqiqahGirlTemplate,
+    Component: AqiqahGirl,
   },
   {
     id: 'celestial-midnight',
-    name: 'Celestial Midnight Gold Gala',
+    name: '',
     category: 'birthday',
     categoryLabel: 'Birthday & Anniversary',
     description: 'Deep midnight navy and shimmering stardust gold for milestone birthdays, anniversaries, and luxury black-tie dinner galas with countdown and itinerary.',
@@ -524,7 +524,7 @@ export const TEMPLATES = [
         { time: "10:30 PM", tag: "Celebration", title: "Silver Jubilee Cake Reveal & Duas", desc: "Tiered anniversary cake cutting, family photography, and heartfelt prayers for many more years together." },
       ],
     },
-    Component: EmeraldAnniversaryTemplate,
+    Component: EmeraldAnniversary,
   },
   {
     id: 'engagement-mangni',
@@ -565,7 +565,7 @@ export const TEMPLATES = [
         { time: "10:30 PM", tag: "Blessings", title: "Family Portraits & Parting Duas", desc: "Capturing cherished memories with close family and concluding blessings." },
       ],
     },
-    Component: EngagementTemplate,
+    Component: Engagement,
   },
   {
     id: 'qawwali-night',
@@ -614,7 +614,7 @@ export const TEMPLATES = [
         { title: "Mera Piya Ghar Aaya", poet: "Hazrat Baba Bulleh Shah", mood: "Celebratory Rang" },
       ],
     },
-    Component: QawwaliTemplate,
+    Component: Qawwali,
   },
   {
     id: 'mayun-haldi',
@@ -656,7 +656,7 @@ export const TEMPLATES = [
         { time: "09:30 PM", tag: "Dawat", title: "Festive Mayun Feast", desc: "Authentic dawat: Dum biryani, crispy puris with halwa, reshmi tikka, and live hot jalebis.", icon: "utensils" },
       ],
     },
-    Component: MayunTemplate,
+    Component: Mayun,
   },
   {
     id: 'bridal-shower',
@@ -696,7 +696,7 @@ export const TEMPLATES = [
         { time: "08:00 PM", tag: "Dinner", title: "Intimate Candlelit Dinner & Soirée", desc: "Curated multi-course dinner banquet, dessert display, and celebrating late into the night.", icon: "utensils" },
       ],
     },
-    Component: BridalShowerTemplate,
+    Component: BridalShower,
   },
 ];
 
@@ -705,7 +705,7 @@ export function wrapCustomTemplate(t) {
   return {
     ...t,
     Component: function DynamicSuiteWrapper(props) {
-      return <DynamicCustomTemplate {...props} templateConfig={t} />;
+      return <DynamicCustom {...props} templateConfig={t} />;
     },
   };
 }
@@ -750,3 +750,5 @@ export function getCategories() {
     { id: 'aqiqah', label: 'Aqiqah & Baby' },
   ];
 }
+
+

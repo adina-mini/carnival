@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 import { submitRsvp } from '@/lib/supabase';
 
-export default function IvorySageWalimaTemplate({ data, isSample = false, invitationId }) {
+export default function IvorySageWalima({ data, isSample = false, invitationId }) {
   const brideName = data?.bride_name || "Aaminah Tariq";
   const groomName = data?.groom_name || "Farhan Qureshi";
   const coupleInitials = data?.couple_initials || "F & A";
@@ -523,3 +523,6 @@ export default function IvorySageWalimaTemplate({ data, isSample = false, invita
     </div>
   );
 }
+
+
+

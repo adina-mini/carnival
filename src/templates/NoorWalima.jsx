@@ -18,7 +18,7 @@ import {
 } from 'lucide-react';
 import { submitRsvp } from '@/lib/supabase';
 
-export default function NoorWalimaTemplate({ data, isSample = false, invitationId }) {
+export default function NoorWalima({ data, isSample = false, invitationId }) {
   const brideName = data?.bride_name || "Zainab Malik";
   const groomName = data?.groom_name || "Daniyal Ahmed";
   const coupleInitials = data?.couple_initials || "Z & D";
@@ -452,3 +452,6 @@ export default function NoorWalimaTemplate({ data, isSample = false, invitationI
     </div>
   );
 }
+
+
+

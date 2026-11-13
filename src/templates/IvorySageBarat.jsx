@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 import { submitRsvp } from '@/lib/supabase';
 
-export default function IvorySageBaratTemplate({ data, isSample = false, invitationId }) {
+export default function IvorySageBarat({ data, isSample = false, invitationId }) {
   const brideName = data?.bride_name || "Aaminah Tariq";
   const groomName = data?.groom_name || "Farhan Qureshi";
   const coupleInitials = data?.couple_initials || "A & F";
@@ -524,3 +524,6 @@ export default function IvorySageBaratTemplate({ data, isSample = false, invitat
     </div>
   );
 }
+
+
+

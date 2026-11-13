@@ -20,7 +20,7 @@ import {
 import { submitRsvp } from '@/lib/supabase';
 import IntroGate from '../components/IntroGate';
 
-export default function QawwaliTemplate({ data, isSample = false, invitationId, suppressIntro = false }) {
+export default function Qawwali({ data, isSample = false, invitationId, suppressIntro = false }) {
   const brideName = data?.bride_name || "Fatima Hafeez";
   const groomName = data?.groom_name || "Rao Sharjeel";
   const coupleName = data?.couple_names || `${brideName} & ${groomName}`;
@@ -587,4 +587,7 @@ export default function QawwaliTemplate({ data, isSample = false, invitationId, 
     </div>
   );
 }
+
+
+
 

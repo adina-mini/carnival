@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 import { submitRsvp } from '@/lib/supabase';
 
-export default function DynamicCustomTemplate({
+export default function DynamicCustom({
   data,
   isSample = false,
   invitationId,
@@ -633,4 +633,7 @@ export default function DynamicCustomTemplate({
     </div>
   );
 }
+
+
+
 

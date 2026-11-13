@@ -18,7 +18,7 @@ import {
 } from 'lucide-react';
 import { submitRsvp } from '@/lib/supabase';
 
-export default function BoyBirthdayTemplate({ data, isSample = false, invitationId }) {
+export default function BoyBirthday({ data, isSample = false, invitationId }) {
   const honoreeName = data?.bride_name || data?.honoree_name || "Ayaan Tariq";
   const eventTitle = data?.event_title || "Chapter 25 • Obsidian Birthday Soirée";
   const eventSubtitle = data?.event_subtitle || "Celebrating A Milestone Year With Good Company";
@@ -414,3 +414,6 @@ export default function BoyBirthdayTemplate({ data, isSample = false, invitation
     </div>
   );
 }
+
+
+

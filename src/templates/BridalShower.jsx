@@ -17,7 +17,7 @@ import {
 import { submitRsvp } from '@/lib/supabase';
 import IntroGate from '../components/IntroGate';
 
-export default function BridalShowerTemplate({ data, isSample = false, invitationId, suppressIntro = false }) {
+export default function BridalShower({ data, isSample = false, invitationId, suppressIntro = false }) {
   const brideName = data?.bride_name || "Zoya Tariq";
   const groomName = data?.groom_name || "Farhan Malik";
   const eventTitle = data?.event_title || "The Bridal Soirée";
@@ -567,4 +567,7 @@ export default function BridalShowerTemplate({ data, isSample = false, invitatio
     </div>
   );
 }
+
+
+
 

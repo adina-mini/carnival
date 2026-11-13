@@ -21,7 +21,7 @@ import {
 } from 'lucide-react';
 import { submitRsvp } from '@/lib/supabase';
 
-export default function RoyalBurgundyTemplate({ data, isSample = false, invitationId, suppressIntro = false }) {
+export default function RoyalBurgundy({ data, isSample = false, invitationId, suppressIntro = false }) {
   // Normalize fields with robust fallbacks
   const brideName = data?.bride_name || "Fatima Hafeez";
   const groomName = data?.groom_name || "Rao Sharjeel";
@@ -661,3 +661,6 @@ export default function RoyalBurgundyTemplate({ data, isSample = false, invitati
     </div>
   );
 }
+
+
+

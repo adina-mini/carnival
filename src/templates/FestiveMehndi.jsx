@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 import { submitRsvp } from '@/lib/supabase';
 
-export default function FestiveMehndiTemplate({ data, isSample = false, invitationId }) {
+export default function FestiveMehndi({ data, isSample = false, invitationId }) {
   const brideName = data?.bride_name || "Ayesha Noor";
   const groomName = data?.groom_name || "Zayn Farooq";
   const coupleInitials = data?.couple_initials || "A & Z";
@@ -461,3 +461,6 @@ export default function FestiveMehndiTemplate({ data, isSample = false, invitati
     </div>
   );
 }
+
+
+

@@ -16,7 +16,7 @@ import {
 import { submitRsvp } from '@/lib/supabase';
 import IntroGate from '../components/IntroGate';
 
-export default function MayunTemplate({ data, isSample = false, invitationId, suppressIntro = false }) {
+export default function Mayun({ data, isSample = false, invitationId, suppressIntro = false }) {
   const brideName = data?.bride_name || "Ayesha Noor";
   const groomName = data?.groom_name || "Zayn Farooq";
   const eventTitle = data?.event_title || "Rasm-e-Mayun & Haldi";
@@ -592,4 +592,7 @@ export default function MayunTemplate({ data, isSample = false, invitationId, su
     </div>
   );
 }
+
+
+
 

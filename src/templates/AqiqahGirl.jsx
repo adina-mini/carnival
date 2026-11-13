@@ -12,42 +12,41 @@ import {
   X,
   CheckCircle2,
   Moon,
-  Baby,
   Clock
 } from 'lucide-react';
 import { submitRsvp } from '@/lib/supabase';
 
-export default function AqiqahBoyTemplate({ data, isSample = false, invitationId }) {
-  const babyName = data?.bride_name || data?.baby_name || "Muhammad Ibrahim";
+export default function AqiqahGirl({ data, isSample = false, invitationId }) {
+  const babyName = data?.bride_name || data?.baby_name || "Anaya Fatima";
   const parentsName = data?.parents_name || "Hamza & Ayesha Siddiqui";
   const eventTitle = data?.event_title || "Aqiqah Ceremony & Sunnah Feast";
-  const eventSubtitle = data?.event_subtitle || "Celebrating The Blessed Arrival of Our Beloved Son";
-  const eventDateIso = data?.event_date_iso || "2026-11-22T13:00:00";
-  const eventDateDisplay = data?.event_date_display || "Sunday • November 22, 2026";
+  const eventSubtitle = data?.event_subtitle || "Celebrating The Blessed Arrival of Our Beloved Daughter";
+  const eventDateIso = data?.event_date_iso || "2026-11-29T13:00:00";
+  const eventDateDisplay = data?.event_date_display || "Sunday • November 29, 2026";
   const eventTimeDisplay = data?.event_time_display || "One O'Clock in the Afternoon";
   const cityDisplay = data?.city_display || "Lahore, Pakistan";
-  const venueName = data?.venue_name || "The Ivory Courtyard • Heritage Banquet";
-  const venueAddress = data?.venue_address || "Gulberg III, Near Ghalib Market, Lahore, Pakistan";
-  const venueMapUrl = data?.venue_map_url || "https://maps.google.com/?q=Gulberg+III+Lahore";
-  const hashtag = data?.hashtag || "#BABYIBRAHIM2026";
+  const venueName = data?.venue_name || "The Gardenia Pavilion • Royal Palm";
+  const venueAddress = data?.venue_address || "52 Canal Bank Road, Mughalpura, Lahore, Pakistan";
+  const venueMapUrl = data?.venue_map_url || "https://maps.google.com/?q=Royal+Palm+Lahore";
+  const hashtag = data?.hashtag || "#BABYANAYA2026";
 
-  // Dedicated artwork slots
-  const heroImage = data?.hero_image || "/assets/aqiqah-boy.jpg";
+  // Dedicated artwork slot
+  const heroImage = data?.hero_image || "/assets/aqiqah-girl.jpg";
   const venueImage = data?.venue_image || "/assets/venue-hall.png";
 
   const schedule = data?.schedule || [
-    { time: "1:00 PM", tag: "Arrival", title: "Welcome & Rose Sharbat", desc: "Gracious gathering of loved ones, rose water welcome, and fresh mint lemonade." },
-    { time: "1:45 PM", tag: "Sunnah", title: "Dua-e-Khair & Parental Tahneek", desc: "Recitation of Quranic verses, heartfelt prayers for health and righteous upbringing.", highlight: true },
-    { time: "2:30 PM", tag: "Aqiqah Dawat", title: "Traditional Aqiqah Luncheon Feast", desc: "Mutton Dum Biryani, Korma, Sheermal, Live Jalebi & Kashmiri Chai." },
-    { time: "4:00 PM", tag: "Blessings", title: "Family Photography & Duas", desc: "Cherished moments, family pictures with baby Ibrahim, and parting blessings." },
+    { time: "1:00 PM", tag: "Arrival", title: "Welcome & Rose Water Sherbet", desc: "Warm arrival of family & friends with fresh chilled almond rose milk and sweet dates." },
+    { time: "1:45 PM", tag: "Sunnah", title: "Dua-e-Khair & Aqiqah Blessings", desc: "Recitation of Quranic verses and collective prayers for long life, health, and barakah.", highlight: true },
+    { time: "2:30 PM", tag: "Aqiqah Dawat", title: "Traditional Aqiqah Luncheon Feast", desc: "Mutton Biryani, Badami Qorma, Sheermal, Live Jalebis, and Kashmiri Chai." },
+    { time: "4:00 PM", tag: "Blessings", title: "Family Portraits & Parting Duas", desc: "Cherished moments, family pictures with baby Anaya, and heartfelt prayers." },
   ];
 
-  // Palette from user artwork: Powder Blue, Soft Linen Cream, Antique Gold, Soft Sage
+  // Palette from user artwork: Serene Blue, Pearl Cream, Soft Gold, White
   const dressCodeColors = [
-    { name: "Powder Blue", hex: "#7E9CB9" },
-    { name: "Linen Cream", hex: "#FAF6EE" },
+    { name: "Serene Sky Blue", hex: "#7E9CB9" },
+    { name: "Pearl Cream", hex: "#FAF6EE" },
     { name: "Antique Gold", hex: "#C5A059" },
-    { name: "Soft Sage", hex: "#94A396" },
+    { name: "Rose Whisper", hex: "#EAD6D8" },
   ];
 
   const [timeLeft, setTimeLeft] = useState({ days: '00', hours: '00', minutes: '00', seconds: '00' });
@@ -88,18 +87,18 @@ export default function AqiqahBoyTemplate({ data, isSample = false, invitationId
   };
 
   return (
-    <div className="bg-[#0B121A] text-gray-800 antialiased font-sans min-h-screen overflow-x-hidden relative selection:bg-[#4A6FA5] selection:text-white">
+    <div className="bg-[#10141D] text-gray-800 antialiased font-sans min-h-screen overflow-x-hidden relative selection:bg-[#7E9CB9] selection:text-white">
 
       {isSample && (
-        <div className="sticky top-0 z-40 bg-[#121E2C]/95 backdrop-blur-md border-b border-[#C5A059]/40 text-[#E5D298] text-center py-2 px-4 text-xs font-cinzel tracking-wider">
-          👶 Sample Template Showcase &bull; Barakah Little Prince • Aqiqah Ceremony
+        <div className="sticky top-0 z-40 bg-[#1A2232]/95 backdrop-blur-md border-b border-[#C5A059]/40 text-[#E5D298] text-center py-2 px-4 text-xs font-cinzel tracking-wider">
+          🌸 Sample Template Showcase &bull; Noor Little Princess • Aqiqah Ceremony
         </div>
       )}
 
       <main className="relative z-10 w-full min-h-screen py-0 sm:py-10 flex justify-center items-start">
         <div className="w-full sm:max-w-[460px] bg-[#FAF8F3] text-[#1E293B] sm:rounded-[36px] shadow-[0_25px_90px_rgba(0,0,0,0.92)] border-0 sm:border-2 sm:border-[#C5A059]/40 overflow-hidden relative">
 
-          {/* TOP ORNATE CORNER BORDER */}
+          {/* TOP ORNATE BORDER */}
           <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#7E9CB9] via-[#C5A059] to-[#7E9CB9]" />
 
           {/* HEADER SECTION */}
@@ -123,20 +122,20 @@ export default function AqiqahBoyTemplate({ data, isSample = false, invitationId
             </h1>
 
             <p className="font-sans text-xs text-gray-600 mt-1">
-              With the Grace of Almighty Allah, {parentsName} invite you to celebrate the
+              With hearts full of gratitude, {parentsName} invite you to celebrate the
             </p>
 
-            <div className="mt-3 inline-block px-3.5 py-1 rounded-full bg-[#EBF1F7] border border-[#C5A059]/30 text-[10px] font-cinzel uppercase tracking-widest text-[#1E3A5F] font-bold">
+            <div className="mt-3 inline-block px-3.5 py-1 rounded-full bg-[#EFF4FA] border border-[#C5A059]/30 text-[10px] font-cinzel uppercase tracking-widest text-[#1E3A5F] font-bold">
               {eventTitle}
             </div>
           </header>
 
-          {/* HERO SEATED BABY ARTWORK (Proper Geometric Circular Cameo) */}
+          {/* HERO SWADDLED BABY GIRL ARTWORK (Proper Geometric Circular Cameo) */}
           <section className="px-6 py-2">
             {heroImage && (
               <div className="flex flex-col items-center justify-center my-3">
-                <div className="relative w-56 h-56 sm:w-64 sm:h-64 rounded-full border-2 border-[#C5A059]/70 p-1.5 shadow-2xl bg-gradient-to-b from-[#EBF1F7] via-white to-[#EFF4FA]">
-                  <div className="w-full h-full rounded-full overflow-hidden relative shadow-inner bg-[#EFF4FA]">
+                <div className="relative w-56 h-56 sm:w-64 sm:h-64 rounded-full border-2 border-[#C5A059]/70 p-1.5 shadow-2xl bg-gradient-to-b from-[#FDF3F5] via-white to-[#F9E9ED]">
+                  <div className="w-full h-full rounded-full overflow-hidden relative shadow-inner bg-[#F9E9ED]">
                     <img
                       src={heroImage}
                       alt={babyName}
@@ -148,7 +147,7 @@ export default function AqiqahBoyTemplate({ data, isSample = false, invitationId
                     {/* Bottom In-Circle Overlay Label */}
                     <div className="absolute bottom-3 left-2 right-2 text-center text-white">
                       <p className="font-cinzel text-[9px] tracking-[0.25em] uppercase text-[#E5D298] font-bold drop-shadow">
-                        Little Prince
+                        Little Princess
                       </p>
                       <p className="font-serif text-xs font-bold text-white drop-shadow">
                         {babyName}
@@ -158,23 +157,26 @@ export default function AqiqahBoyTemplate({ data, isSample = false, invitationId
                 </div>
 
                 <div className="mt-3 text-center">
-                  <span className="font-cinzel text-[10px] tracking-[0.25em] text-[#1E3A5F] uppercase font-bold">
-                    Gift from Almighty Allah
+                  <span className="font-cinzel text-[10px] tracking-[0.25em] text-[#8C3A52] uppercase font-bold">
+                    Pure Blessing of Joy
                   </span>
                 </div>
               </div>
             )}
           </section>
 
-          {/* DUA CARD */}
+          {/* QURANIC DUA CARD */}
           <section className="px-6 py-4 text-center">
             <div className="p-5 rounded-2xl bg-[#EFF4FA] border border-[#C5A059]/30 shadow-inner">
               <Heart className="w-5 h-5 text-[#C5A059] mx-auto mb-2 opacity-80" />
               <p className="font-arabic text-base text-[#122842] leading-relaxed mb-2 font-medium">
-                &ldquo;بَارَكَ اللَّهُ لَكَ فِي المَوهُوبِ لَكَ، وَشَكَرْتَ الوَاهِبَ، وَبَلَغَ أَشُدَّهُ، وَرُزِقْتَ بِرَّهُ&rdquo;
+                &ldquo;رَبِّ هَبْ لِي مِن لَّدُنكَ ذُرِّيَّةً طَيِّبَةً ۖ إِنَّكَ سَمِيعُ الدُّعَاءِ&rdquo;
               </p>
               <p className="font-serif text-xs italic text-[#2A3F5B] leading-relaxed">
-                &ldquo;May Allah bless you in His gift to you, may you give thanks to the Giver, may he reach the age of strength, and may you be granted his righteousness.&rdquo;
+                &ldquo;My Lord, grant me from Yourself a good offspring. Indeed, You are the Hearer of supplication.&rdquo;
+              </p>
+              <p className="font-cinzel text-[9px] uppercase tracking-widest text-[#4A6FA5] mt-2 font-semibold">
+                — Surah Ali &apos;Imran &bull; 3:38
               </p>
             </div>
           </section>
@@ -356,7 +358,7 @@ export default function AqiqahBoyTemplate({ data, isSample = false, invitationId
               <div className="text-center py-6">
                 <CheckCircle2 className="w-12 h-12 text-[#1E3A5F] mx-auto mb-2" />
                 <h3 className="font-serif text-xl font-bold text-[#1E3A5F]">JazakAllah Khair!</h3>
-                <p className="text-xs text-gray-600 mt-1">Your attendance &amp; blessed prayers have been warmly received. We look forward to seeing you.</p>
+                <p className="text-xs text-gray-600 mt-1">Your attendance &amp; blessed prayers for baby {babyName} have been warmly received.</p>
               </div>
             ) : (
               <div className="space-y-4">
@@ -392,7 +394,7 @@ export default function AqiqahBoyTemplate({ data, isSample = false, invitationId
                     type="text"
                     value={rsvpForm.wish}
                     onChange={(e) => setRsvpForm({ ...rsvpForm, wish: e.target.value })}
-                    placeholder="May Allah grant him long life..."
+                    placeholder="May Allah bless her with righteousness..."
                     className="w-full px-3 py-2 text-xs rounded-xl border border-[#C5A059] focus:outline-none focus:ring-1 focus:ring-[#1E3A5F]"
                   />
                 </div>
@@ -426,7 +428,7 @@ export default function AqiqahBoyTemplate({ data, isSample = false, invitationId
       {/* AMBIENT AUDIO TOGGLE */}
       <button
         onClick={() => setIsMuted(!isMuted)}
-        className="fixed bottom-5 right-5 z-40 p-3 rounded-full bg-[#121E2C] text-[#C5A059] border border-[#C5A059]/50 shadow-2xl"
+        className="fixed bottom-5 right-5 z-40 p-3 rounded-full bg-[#1A2232] text-[#C5A059] border border-[#C5A059]/50 shadow-2xl"
         title={isMuted ? "Play Soothing Ambient Oud" : "Mute Music"}
       >
         {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
@@ -435,3 +437,6 @@ export default function AqiqahBoyTemplate({ data, isSample = false, invitationId
     </div>
   );
 }
+
+
+

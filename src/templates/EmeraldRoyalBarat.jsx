@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 import { submitRsvp } from '@/lib/supabase';
 
-export default function EmeraldRoyalBaratTemplate({ data, isSample = false, invitationId }) {
+export default function EmeraldRoyalBarat({ data, isSample = false, invitationId }) {
   const brideName = data?.bride_name || "Mahnoor Khan";
   const groomName = data?.groom_name || "Shahveer Ahmed";
   const coupleInitials = data?.couple_initials || "M & S";
@@ -544,3 +544,6 @@ export default function EmeraldRoyalBaratTemplate({ data, isSample = false, invi
     </div>
   );
 }
+
+
+
