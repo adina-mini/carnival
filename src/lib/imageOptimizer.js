@@ -99,3 +99,5 @@ export async function optimizeImageFile(file, maxDimension = 1600, quality = 0.8
   });
 }
 
+
+
