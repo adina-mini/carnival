@@ -100,7 +100,7 @@ export default function PaymentModal({
   };
 
   const whatsappVerificationUrl = `https://wa.me/${conciergeWhatsApp}?text=${encodeURIComponent(
-    `Assalamu Alaikum VESNA Concierge!\n\nI have transferred PKR ${pricePkr} via ${selectedMethod.toUpperCase()} for my invitation:\n• Invitation ID: ${invitationId}\n• Couple: ${coupleTitle}\n• Trx ID / TID: ${trxId || 'Attached below'}\n\nKindly verify and activate our invitation suite.`
+    `Assalamu Alaikum DAHLIA Concierge!\n\nI have transferred PKR ${pricePkr} via ${selectedMethod.toUpperCase()} for my invitation:\n• Invitation ID: ${invitationId}\n• Couple: ${coupleTitle}\n• Trx ID / TID: ${trxId || 'Attached below'}\n\nKindly verify and activate our invitation suite.`
   )}`;
 
   return (
@@ -276,7 +276,7 @@ export default function PaymentModal({
                 <>
                   <div className="flex items-center justify-between border-b border-sand-200 pb-2">
                     <span className="text-espresso/60">Easypaisa Account Title:</span>
-                    <span className="font-bold text-espresso">{settings?.easypaisa?.accountTitle || 'VESNA Atelier'}</span>
+                    <span className="font-bold text-espresso">{settings?.easypaisa?.accountTitle || 'DAHLIA Atelier'}</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <div>
@@ -301,7 +301,7 @@ export default function PaymentModal({
                 <>
                   <div className="flex items-center justify-between border-b border-sand-200 pb-2">
                     <span className="text-espresso/60">JazzCash Account Title:</span>
-                    <span className="font-bold text-espresso">{settings?.jazzcash?.accountTitle || 'VESNA Atelier'}</span>
+                    <span className="font-bold text-espresso">{settings?.jazzcash?.accountTitle || 'DAHLIA Atelier'}</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <div>
@@ -327,7 +327,7 @@ export default function PaymentModal({
                   <div className="flex items-center justify-between border-b border-sand-200 pb-2">
                     <span className="text-espresso/60">Bank Name &amp; Title:</span>
                     <span className="font-bold text-espresso text-right">
-                      {settings?.bankTransfer?.bankName || 'Meezan Bank'} • {settings?.bankTransfer?.accountTitle || 'VESNA Studio'}
+                      {settings?.bankTransfer?.bankName || 'Meezan Bank'} • {settings?.bankTransfer?.accountTitle || 'DAHLIA Studio'}
                     </span>
                   </div>
                   <div className="flex items-center justify-between">

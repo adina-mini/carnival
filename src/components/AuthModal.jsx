@@ -62,7 +62,7 @@ export default function AuthModal() {
   };
 
   const handleQuickDemo = () => {
-    signInDemo('Wedding Host', 'host@vesna.atelier');
+    signInDemo('Wedding Host', 'host@dahlia.atelier');
   };
 
   return (

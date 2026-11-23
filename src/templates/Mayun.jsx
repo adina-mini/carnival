@@ -474,7 +474,7 @@ export default function Mayun({ data, isSample = false, invitationId, suppressIn
 
           {/* Footer */}
           <div className="text-center pb-8 pt-2 text-[#995000]/70 text-[10px] font-sans tracking-widest uppercase border-t border-[#D98200]/20 mx-6 font-medium">
-            VESNA Luxury Digital Atelier • &copy; {new Date().getFullYear()}
+            DAHLIA Luxury Digital Atelier • &copy; {new Date().getFullYear()}
           </div>
 
         </div>

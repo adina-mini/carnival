@@ -390,7 +390,7 @@ const LOCAL_ORDERS_KEY = 'vesna_platform_orders';
 
 const DEFAULT_SETTINGS = {
   conciergeWhatsApp: '+92 300 8472911',
-  conciergeEmail: 'concierge@vesna.atelier',
+  conciergeEmail: 'concierge@dahlia.atelier',
   bannerActive: true,
   bannerMessage: 'Winter Wedding Season: Enjoy Complimentary 3D Gold Foil Shimmer on All 15 Suites',
   bannerLink: '/templates',
@@ -398,16 +398,16 @@ const DEFAULT_SETTINGS = {
   currency: 'PKR',
   paymentMode: 'strict', // Mode A: Concierge verification required
   easypaisa: {
-    accountTitle: 'VESNA Atelier',
+    accountTitle: 'DAHLIA Atelier',
     accountNumber: '0300 8472911',
   },
   jazzcash: {
-    accountTitle: 'VESNA Atelier',
+    accountTitle: 'DAHLIA Atelier',
     accountNumber: '0300 8472911',
   },
   bankTransfer: {
     bankName: 'Meezan Bank',
-    accountTitle: 'VESNA Luxury Studio',
+    accountTitle: 'DAHLIA Luxury Studio',
     iban: 'PK82MEZN0001234567890123',
     accountNumber: '01020304050607',
   },

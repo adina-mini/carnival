@@ -451,7 +451,7 @@ export default function BridalShower({ data, isSample = false, invitationId, sup
 
           {/* Footer */}
           <div className="text-center pb-8 pt-2 text-[#A4B3C6]/60 text-[10px] font-sans tracking-widest uppercase border-t border-[#D4AF37]/15 mx-6 font-medium">
-            VESNA Luxury Digital Atelier • &copy; {new Date().getFullYear()}
+            DAHLIA Luxury Digital Atelier • &copy; {new Date().getFullYear()}
           </div>
 
         </div>

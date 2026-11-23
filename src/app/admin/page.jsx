@@ -82,7 +82,7 @@ export default function AdminPage() {
   // Platform Settings State
   const [settings, setSettings] = useState({
     conciergeWhatsApp: '+92 300 8472911',
-    conciergeEmail: 'concierge@vesna.atelier',
+    conciergeEmail: 'concierge@dahlia.atelier',
     bannerActive: true,
     bannerMessage: 'Winter Wedding Season: Enjoy Complimentary 3D Gold Foil Shimmer on All 15 Suites',
     bannerLink: '/templates',
@@ -90,16 +90,16 @@ export default function AdminPage() {
     currency: 'PKR',
     paymentMode: 'strict',
     easypaisa: {
-      accountTitle: 'VESNA Atelier',
+      accountTitle: 'DAHLIA Atelier',
       accountNumber: '0300 8472911',
     },
     jazzcash: {
-      accountTitle: 'VESNA Atelier',
+      accountTitle: 'DAHLIA Atelier',
       accountNumber: '0300 8472911',
     },
     bankTransfer: {
       bankName: 'Meezan Bank',
-      accountTitle: 'VESNA Luxury Studio',
+      accountTitle: 'DAHLIA Luxury Studio',
       iban: 'PK82MEZN0001234567890123',
       accountNumber: '01020304050607',
     },
@@ -1132,7 +1132,7 @@ export default function AdminPage() {
                   type="email"
                   value={settings.conciergeEmail}
                   onChange={(e) => setSettings({ ...settings, conciergeEmail: e.target.value })}
-                  placeholder="concierge@vesna.atelier"
+                  placeholder="concierge@dahlia.atelier"
                   className="w-full px-4 py-2.5 rounded-xl bg-sand-50 border border-sand-300 text-xs text-espresso focus:outline-hidden focus:border-olive font-mono"
                 />
               </div>

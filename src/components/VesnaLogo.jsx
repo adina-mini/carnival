@@ -1,9 +1,9 @@
 import React from 'react';
 
 /**
- * VESNA Luxury Brand Logo Component
- * High-fashion vector emblem featuring an architectural serif 'V'
- * crowned with a radiant 4-point gold diamond star.
+ * DAHLIA Luxury Brand Logo Component
+ * High-fashion vector emblem featuring a blooming symmetrical Dahlia blossom
+ * in antique champagne gold and velvet burgundy.
  */
 export default function VesnaLogo({
   size = 'md',
@@ -34,9 +34,9 @@ export default function VesnaLogo({
     <div className={`inline-flex items-center gap-3 select-none ${className}`}>
       {variant !== 'wordmark-only' && (
         <div
-          className={`relative ${emblemSizes[size]} rounded-2xl bg-gradient-to-br from-[#faf8f5] via-[#f3ede4] to-[#e8ded2] border border-sand-300 flex items-center justify-center shadow-xs transition-all duration-300 flex-shrink-0 group-hover:border-gold-500 group-hover:shadow-[0_0_20px_rgba(212,175,55,0.25)]`}
+          className={`relative ${emblemSizes[size]} rounded-2xl bg-gradient-to-br from-[#faf8f5] via-[#f5eee6] to-[#ebe1d5] border border-sand-300 flex items-center justify-center shadow-xs transition-all duration-300 flex-shrink-0 group-hover:border-gold-500 group-hover:shadow-[0_0_20px_rgba(212,175,55,0.25)]`}
         >
-          {/* Bespoke Architectural V SVG Emblem */}
+          {/* Symmetrical Luxury Dahlia Flower Emblem */}
           <svg
             viewBox="0 0 48 48"
             fill="none"
@@ -44,54 +44,38 @@ export default function VesnaLogo({
             className="w-6 h-6 transform transition-transform duration-300 group-hover:scale-105"
           >
             <defs>
-              <linearGradient id="vesnaGold" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#DFC386" />
-                <stop offset="50%" stopColor="#B38F2C" />
-                <stop offset="100%" stopColor="#8A6A1D" />
+              <linearGradient id="dahliaGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#E2C98F" />
+                <stop offset="50%" stopColor="#C49A3B" />
+                <stop offset="100%" stopColor="#8E6B1E" />
               </linearGradient>
-              <linearGradient id="vesnaEspresso" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#2A241E" />
-                <stop offset="100%" stopColor="#14110F" />
+              <linearGradient id="dahliaBurgundy" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#5A0F1E" />
+                <stop offset="100%" stopColor="#2A050B" />
               </linearGradient>
             </defs>
 
-            {/* Subtle outer diamond facet border */}
-            <path
-              d="M24 4 L43 24 L24 44 L5 24 Z"
-              stroke="url(#vesnaGold)"
-              strokeWidth="0.8"
-              strokeDasharray="2 2"
-              opacity="0.6"
-            />
+            {/* Symmetrical Outer Petals */}
+            <path d="M24 6 C25.5 13 25.5 17 24 24 C22.5 17 22.5 13 24 6 Z" fill="url(#dahliaGold)" opacity="0.9" />
+            <path d="M24 42 C25.5 35 25.5 31 24 24 C22.5 31 22.5 35 24 42 Z" fill="url(#dahliaGold)" opacity="0.9" />
+            <path d="M6 24 C13 25.5 17 25.5 24 24 C17 22.5 13 22.5 6 24 Z" fill="url(#dahliaGold)" opacity="0.9" />
+            <path d="M42 24 C35 25.5 31 25.5 24 24 C31 22.5 35 22.5 42 24 Z" fill="url(#dahliaGold)" opacity="0.9" />
 
-            {/* Architectural Serif Letter 'V' */}
-            {/* Left thick stem */}
-            <path
-              d="M13 13 H20.5 L24 35 L27.5 13 H35"
-              stroke="none"
-              fill="none"
-            />
-            {/* Left Serif Stem */}
-            <path
-              d="M14 14.5 H20.5 L24 35.5 L20 35.5 Z"
-              fill="url(#vesnaEspresso)"
-            />
-            {/* Right Slender Serif Hairline Stem */}
-            <path
-              d="M24 35.5 L33.5 14.5 H30 Z"
-              fill="url(#vesnaGold)"
-            />
-            {/* Left Serifs */}
-            <rect x="13" y="13" width="7.5" height="1.6" rx="0.5" fill="url(#vesnaEspresso)" />
-            {/* Right Serifs */}
-            <rect x="29" y="13" width="5.5" height="1.6" rx="0.5" fill="url(#vesnaGold)" />
+            {/* Diagonal Petals */}
+            <path d="M11.3 11.3 C17 15 20 18 24 24 C18 20 15 17 11.3 11.3 Z" fill="url(#dahliaBurgundy)" />
+            <path d="M36.7 11.3 C31 15 28 18 24 24 C30 20 33 17 36.7 11.3 Z" fill="url(#dahliaBurgundy)" />
+            <path d="M11.3 36.7 C17 33 20 30 24 24 C18 28 15 31 11.3 36.7 Z" fill="url(#dahliaBurgundy)" />
+            <path d="M36.7 36.7 C31 33 28 30 24 24 C30 28 33 31 36.7 36.7 Z" fill="url(#dahliaBurgundy)" />
 
-            {/* 4-point Radiant Diamond Star Crest atop the right apex */}
-            <path
-              d="M33 9.5 Q33 13 36.5 13 Q33 13 33 16.5 Q33 13 29.5 13 Q33 13 33 9.5 Z"
-              fill="url(#vesnaGold)"
-            />
-            <circle cx="33" cy="13" r="0.9" fill="#FFF" />
+            {/* Inner Dahlia Crown Petals */}
+            <path d="M24 14 C25 18 25 21 24 24 C23 21 23 18 24 14 Z" fill="url(#dahliaGold)" />
+            <path d="M24 34 C25 30 25 27 24 24 C23 27 23 30 24 34 Z" fill="url(#dahliaGold)" />
+            <path d="M14 24 C18 25 21 25 24 24 C21 23 18 23 14 24 Z" fill="url(#dahliaGold)" />
+            <path d="M34 24 C30 25 27 25 24 24 C27 23 30 23 34 24 Z" fill="url(#dahliaGold)" />
+
+            {/* Floral Core Stamen */}
+            <circle cx="24" cy="24" r="3" fill="url(#dahliaBurgundy)" stroke="url(#dahliaGold)" strokeWidth="0.8" />
+            <circle cx="24" cy="24" r="1.2" fill="#FAF5EF" />
           </svg>
 
           {/* Micro gold shimmer dot */}
@@ -104,7 +88,7 @@ export default function VesnaLogo({
           <span
             className={`font-serif font-semibold text-espresso block leading-tight tracking-[0.24em] ${titleSizes[size]}`}
           >
-            VESNA
+            DAHLIA
           </span>
           {showTagline && (
             <span
@@ -118,6 +102,3 @@ export default function VesnaLogo({
     </div>
   );
 }
-
-
-

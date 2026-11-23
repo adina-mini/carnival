@@ -155,7 +155,7 @@ export default function PublishModal({
                 vesna.vercel.app
               </span>
               <h4 className="font-serif text-sm font-bold text-espresso leading-snug line-clamp-1">
-                💍 Invitation: {couple} | VESNA
+                💍 Invitation: {couple} | DAHLIA
               </h4>
               <p className="font-sans text-[11px] text-espresso/70 line-clamp-2 mt-0.5 leading-relaxed">
                 Warmly requesting the honour of your presence on {date} at {venue}. Tap to unveil your invitation & RSVP.

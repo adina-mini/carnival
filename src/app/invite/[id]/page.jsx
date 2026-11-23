@@ -14,17 +14,17 @@ export async function generateMetadata({ params }) {
 
   if (!invitation || invitation.status !== 'published') {
     return {
-      title: 'Digital Invitation | VESNA Atelier',
+      title: 'Digital Invitation | DAHLIA Atelier',
       description: 'You are cordially invited to celebrate with us. Tap to view your personalized digital invitation.',
       openGraph: {
-        title: 'Digital Invitation | VESNA Atelier',
+        title: 'Digital Invitation | DAHLIA Atelier',
         description: 'You are cordially invited to celebrate with us. Tap to view your personalized digital invitation.',
         images: [
           {
-            url: '/api/og?title=Digital%20Invitation&event=Celebration%20Suite&date=Honoured%20Presence&venue=VESNA%20Atelier&theme=gold',
+            url: '/api/og?title=Digital%20Invitation&event=Celebration%20Suite&date=Honoured%20Presence&venue=DAHLIA%20Atelier&theme=gold',
             width: 1200,
             height: 630,
-            alt: 'VESNA Digital Invitation',
+            alt: 'DAHLIA Digital Invitation',
           },
         ],
       },
@@ -63,7 +63,7 @@ export async function generateMetadata({ params }) {
 
   const ogImageUrl = `/api/og?title=${encodeURIComponent(coupleTitle)}&event=${encodeURIComponent(eventTitle)}&date=${encodeURIComponent(dateStr)}&venue=${encodeURIComponent(venueStr)}&theme=${encodeURIComponent(themeKey)}`;
 
-  const pageTitle = `💍 Invitation: ${coupleTitle} | VESNA`;
+  const pageTitle = `💍 Invitation: ${coupleTitle} | DAHLIA`;
   const pageDesc = `✨ Warmly requesting the honour of your presence on ${dateStr} at ${venueStr}. Tap to unlock your personalized digital invitation & RSVP online.`;
 
   return {
@@ -73,7 +73,7 @@ export async function generateMetadata({ params }) {
       title: pageTitle,
       description: pageDesc,
       url: `/invite/${params.id}`,
-      siteName: 'VESNA Luxury Invitations',
+      siteName: 'DAHLIA Luxury Invitations',
       images: [
         {
           url: ogImageUrl,

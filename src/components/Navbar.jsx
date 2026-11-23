@@ -193,7 +193,7 @@ export default function Navbar() {
             /* User Signed Out: Sign In Trigger */
             <button
               id="nav-signin-btn"
-              onClick={() => openAuthModal({ title: 'Sign In to VESNA' })}
+              onClick={() => openAuthModal({ title: 'Sign In to DAHLIA' })}
               className="px-4 py-2 rounded-full border border-sand-300 bg-paper hover:bg-sand-100 text-espresso font-sans text-xs font-medium transition-all hover:shadow-xs cursor-pointer"
             >
               Sign In
@@ -259,7 +259,7 @@ export default function Navbar() {
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  openAuthModal({ title: 'Sign In to VESNA' });
+                  openAuthModal({ title: 'Sign In to DAHLIA' });
                 }}
                 className="w-full py-2.5 rounded-2xl border border-sand-300 bg-sand-50 hover:bg-sand-100 text-espresso font-sans text-xs font-semibold uppercase tracking-wider text-center block"
               >

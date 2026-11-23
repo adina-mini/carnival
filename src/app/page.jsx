@@ -151,7 +151,7 @@ export default function HomePage() {
               Simple &amp; Bespoke
             </span>
             <h2 className="font-serif text-3xl sm:text-5xl font-normal text-espresso">
-              How VESNA Works
+              How DAHLIA Works
             </h2>
             <p className="font-sans text-sm sm:text-base text-espresso/70 max-w-xl mx-auto mt-3 leading-relaxed">
               Crafting a regal digital invitation requires no design skills and takes under 3 minutes.

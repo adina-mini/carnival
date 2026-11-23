@@ -137,7 +137,7 @@ export async function GET(request) {
                   fontWeight: 600,
                 }}
               >
-                VESNA ATELIER • ROYAL INVITATION
+                DAHLIA ATELIER • ROYAL INVITATION
               </div>
               <div style={{ width: '40px', height: '1px', background: currentTheme.accent }} />
             </div>

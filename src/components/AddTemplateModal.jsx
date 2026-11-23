@@ -686,7 +686,7 @@ export default function AddTemplateModal({ isOpen, onClose, onCreated }) {
                   <strong className="text-espresso font-semibold block mb-0.5">
                     3 Pictures Required to Make a Complete Suite:
                   </strong>
-                  Every VESNA template requires a <strong>Couple Hero Portrait</strong>, a <strong>Stage/Venue Photo</strong>, and an <strong>Opening Wax Seal Artwork</strong>. You can upload custom high-res files from your device, choose from the atelier asset library, or paste a URL.
+                  Every DAHLIA template requires a <strong>Couple Hero Portrait</strong>, a <strong>Stage/Venue Photo</strong>, and an <strong>Opening Wax Seal Artwork</strong>. You can upload custom high-res files from your device, choose from the atelier asset library, or paste a URL.
                 </div>
               </div>
 

@@ -139,7 +139,7 @@ export async function GET(request) {
                 fontWeight: 600,
               }}
             >
-              VESNA • DIGITAL INVITATION ATELIER
+              DAHLIA • DIGITAL INVITATION ATELIER
             </div>
             <div
               style={{

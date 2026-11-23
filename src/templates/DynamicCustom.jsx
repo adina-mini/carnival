@@ -47,7 +47,7 @@ export default function DynamicCustom({
   const venueName = data?.venue_name || sample.venue_name || 'The Grand Palm Royale';
   const venueAddress = data?.venue_address || sample.venue_address || 'Canal Bank Road, Lahore, Punjab, Pakistan';
   const venueMapUrl = data?.venue_map_url || sample.venue_map_url || 'https://maps.google.com';
-  const hashtag = data?.hashtag || sample.hashtag || '#VESNALUXURY2026';
+  const hashtag = data?.hashtag || sample.hashtag || '#DAHLIALUXURY2026';
 
   // Media
   const heroImage = data?.hero_image || sample.hero_image || '/assets/couple-hero.jpg';
@@ -495,7 +495,7 @@ export default function DynamicCustom({
             className="font-sans text-[11px] tracking-wider uppercase opacity-70"
             style={{ color: isDarkCanvas ? '#B3ABA1' : '#6A5F58' }}
           >
-            Crafted with Distinction by VESNA • The Invitation Atelier
+            Crafted with Distinction by DAHLIA • The Invitation Atelier
           </p>
         </footer>
       </div>

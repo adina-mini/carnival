@@ -92,7 +92,7 @@ export default function Footer() {
           Designed for unforgettable life celebrations across Karachi, Lahore, Islamabad, London, Dubai &amp; worldwide.
         </p>
         <div className="flex items-center gap-3 text-[10px] uppercase tracking-widest text-espresso/60">
-          <span>© {new Date().getFullYear()} VESNA Atelier. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} DAHLIA Atelier. All rights reserved.</span>
           <span>•</span>
           <Link href="/admin" className="hover:text-espresso text-olive/80 transition-colors">
             Admin Console
