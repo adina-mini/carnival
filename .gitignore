@@ -1,3 +1,5 @@
+node_modules/
+.next/
 scratch/
 .DS_Store
 node_modules
