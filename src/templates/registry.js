@@ -11,7 +11,7 @@ import BoyBirthday from './BoyBirthday';
 import AqiqahBoy from './AqiqahBoy';
 import AqiqahGirl from './AqiqahGirl';
 import EmeraldAnniversary from './EmeraldAnniversary';
-import CelestialMidnightTemplate from './CelestialMidnightTemplate';
+
 import Qawwali from './Qawwali';
 import Mayun from './Mayun';
 import BridalShower from './BridalShower';
@@ -447,42 +447,8 @@ export const TEMPLATES = [
     },
     Component: AqiqahGirl,
   },
-  {
-    id: 'celestial-midnight',
-    name: '',
-    category: 'birthday',
-    categoryLabel: 'Birthday & Anniversary',
-    description: 'Deep midnight navy and shimmering stardust gold for milestone birthdays, anniversaries, and luxury black-tie dinner galas with countdown and itinerary.',
-    palette: ['#040711', '#172C5B', '#E0C25E'],
-    thumbnail: '/assets/couple-hero.jpg',
-    slots: {
-      intro_image: { label: 'Intro Gate Artwork (Circular)', default: '/assets/couple-golden-intro.jpg' },
-      hero_image: { label: 'Honoree Portrait Photo', default: '/assets/couple-hero.jpg' },
-      venue_image: { label: 'Celebration Stage & Venue Photo', default: '/assets/birthday-venue-stage.jpg' },
-    },
-    sampleData: {
-      bride_name: 'Aria Noor',
-      event_title: '30th Birthday Gala Celebration',
-      event_date_iso: '2026-12-18T20:30:00',
-      event_date_display: 'Friday • December 18, 2026',
-      event_time_display: "Half Past Eight in the Evening",
-      city_display: 'Karachi, Pakistan',
-      venue_name: 'The Sky Lounge & Rooftop',
-      venue_address: 'Clifton Block 4, Oceanfront, Karachi',
-      venue_map_url: 'https://maps.google.com/?q=Clifton+Karachi',
-      hashtag: '#ARIACHAPTER30',
-      intro_image: '/assets/couple-golden-intro.jpg',
-      hero_image: '/assets/couple-hero.jpg',
-      venue_image: '/assets/birthday-venue-stage.jpg',
-      schedule: [
-        { time: "8:30 PM", tag: "Arrival", title: "Red Carpet & Starlight Cocktails", desc: "Arrival of guests with sparkling beverages and live saxophone." },
-        { time: "9:30 PM", tag: "Toast", title: "Celebration Toasts & Video Tribute", desc: "Heartwarming speeches, milestones reel, and champagne toast." },
-        { time: "10:15 PM", tag: "Cake", title: "Midnight Cake Cutting & Sparklers", desc: "Gather around for the grand cake reveal and sparklers." },
-        { time: "11:00 PM", tag: "Gala", title: "Midnight Gourmet Buffet & Dance Floor", desc: "Eclectic culinary feast and lively rooftop music under the stars." },
-      ],
-    },
-    Component: CelestialMidnightTemplate,
-  },
+
+
   {
     id: 'emerald-anniversary',
     name: 'Emerald & Charcoal • Milestone Anniversary',
