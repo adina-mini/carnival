@@ -16,7 +16,7 @@ import CustomizationForm from '@/components/CustomizationForm';
 import SampleCardShowcase from '@/components/SampleCardShowcase';
 import PublishModal from '@/components/PublishModal';
 import PaymentModal from '@/components/PaymentModal';
-import { saveInvitation, getInvitationById } from '@/lib/supabase';
+import { saveInvitation, getInvitationById, checkSlugAvailability } from '@/lib/supabase';
 import { useAuth } from '@/context/AuthContext';
 
 function CreatePageInner() {
@@ -102,12 +102,31 @@ function CreatePageInner() {
   };
 
   // Generate unique slug/ID
-  const generateUniqueId = () => {
-    const randomHex = Math.random().toString(36).substring(2, 10);
-    const namesSlug = (formData.bride_name && formData.groom_name)
-      ? `${formData.bride_name.split(' ')[0]}-and-${formData.groom_name.split(' ')[0]}`.toLowerCase().replace(/[^a-z0-9]/g, '')
-      : 'invitation';
-    return `${namesSlug}-${randomHex}`;
+  const generateUniqueId = async () => {
+    // 1. If user provided a custom slug, validate and use it
+    if (formData.custom_slug?.trim()) {
+      const cleanCustom = formData.custom_slug.toLowerCase().replace(/[^a-z0-9-]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+      const check = await checkSlugAvailability(cleanCustom);
+      if (check.available) return cleanCustom;
+      if (check.suggestion) return check.suggestion;
+    }
+
+    // 2. Otherwise generate clean human-readable slug from names
+    const bName = formData.bride_name?.trim().split(' ')[0] || '';
+    const gName = formData.groom_name?.trim().split(' ')[0] || '';
+    let base = '';
+
+    if (bName && gName) {
+      base = `${bName}-${gName}`.toLowerCase().replace(/[^a-z0-9]/g, '');
+    } else if (bName) {
+      base = `${bName}`.toLowerCase().replace(/[^a-z0-9]/g, '');
+    } else {
+      base = 'celebration';
+    }
+
+    const checkBase = await checkSlugAvailability(base);
+    if (checkBase.available) return base;
+    return checkBase.suggestion || `${base}-${Math.random().toString(36).substring(2, 6)}`;
   };
 
   const { user, openAuthModal } = useAuth();
@@ -117,7 +136,7 @@ function CreatePageInner() {
     setIsSavingDraft(true);
     setErrorMessage('');
     try {
-      const id = editIdParam || generateUniqueId();
+      const id = editIdParam || (await generateUniqueId());
       // Ensure all uploaded photos are compiled into the core data payload
       const compiledData = { ...formData };
       if (mediaUploads) {
@@ -165,7 +184,7 @@ function CreatePageInner() {
   const executePublish = async (actingUser = user) => {
     setIsPublishing(true);
     try {
-      const id = editIdParam || generateUniqueId();
+      const id = editIdParam || (await generateUniqueId());
       // Ensure all uploaded photos are compiled into the core data payload
       const compiledData = { ...formData };
       if (mediaUploads) {

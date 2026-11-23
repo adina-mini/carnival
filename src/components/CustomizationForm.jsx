@@ -22,6 +22,7 @@ import {
   RefreshCw
 } from 'lucide-react';
 import { optimizeImageFile } from '@/lib/imageOptimizer';
+import { checkSlugAvailability } from '@/lib/supabase';
 
 export default function CustomizationForm({
   template,
@@ -38,6 +39,35 @@ export default function CustomizationForm({
   const [uploadError, setUploadError] = useState('');
   const [processingSlot, setProcessingSlot] = useState(null);
   const [dragActiveSlot, setDragActiveSlot] = useState(null);
+  const [slugStatus, setSlugStatus] = useState({ checking: false, available: true, message: '', suggestion: '' });
+
+  // Handle custom slug check
+  const handleSlugChange = async (val) => {
+    const formatted = val.toLowerCase().replace(/[^a-z0-9-]/g, '-').replace(/-+/g, '-');
+    handleChange('custom_slug', formatted);
+
+    if (!formatted.trim()) {
+      setSlugStatus({ checking: false, available: true, message: '', suggestion: '' });
+      return;
+    }
+
+    setSlugStatus((prev) => ({ ...prev, checking: true }));
+    try {
+      const res = await checkSlugAvailability(formatted);
+      if (res.available) {
+        setSlugStatus({ checking: false, available: true, message: 'This custom link is available!', suggestion: '' });
+      } else {
+        setSlugStatus({
+          checking: false,
+          available: false,
+          message: 'This custom link is already taken. Try choosing another name or use this suggestion:',
+          suggestion: res.suggestion,
+        });
+      }
+    } catch (e) {
+      setSlugStatus({ checking: false, available: true, message: '', suggestion: '' });
+    }
+  };
 
   // Handle generic text change
   const handleChange = (field, value) => {
@@ -290,6 +320,69 @@ export default function CustomizationForm({
                 className="w-full px-4 py-3 rounded-2xl bg-sand-50/80 border border-sand-300 text-espresso placeholder-espresso/40 text-xs focus:outline-none focus:ring-2 focus:ring-espresso focus:border-espresso transition-all"
               />
             </div>
+          </div>
+
+          {/* ================================================================= */}
+          {/* CUSTOM INVITATION URL SLUG (OPTIONAL)                             */}
+          {/* ================================================================= */}
+          <div className="p-4 rounded-2xl bg-sand-50/80 border border-sand-300">
+            <div className="flex items-center justify-between mb-1.5">
+              <label className="block text-xs font-semibold uppercase tracking-wider text-espresso">
+                Custom Invitation Link (Optional)
+              </label>
+              <span className="text-[10px] font-sans text-olive font-medium uppercase tracking-wider">
+                Clean URL
+              </span>
+            </div>
+            <p className="text-[11px] text-espresso/70 mb-3">
+              Personalize your direct invitation URL. If left empty, a clean link will automatically be generated from your names.
+            </p>
+
+            <div className="flex items-center rounded-2xl border border-sand-300 bg-paper overflow-hidden focus-within:ring-2 focus-within:ring-espresso focus-within:border-espresso transition-all">
+              <span className="px-3.5 py-3 bg-sand-100 text-espresso/60 text-xs font-mono border-r border-sand-200 select-none">
+                /invite/
+              </span>
+              <input
+                type="text"
+                value={formData.custom_slug || ''}
+                onChange={(e) => handleSlugChange(e.target.value)}
+                placeholder="e.g. fatima-weds-sharjeel"
+                className="w-full px-3.5 py-3 bg-transparent text-espresso placeholder-espresso/40 text-xs font-mono focus:outline-none"
+              />
+            </div>
+
+            {slugStatus.checking && (
+              <p className="text-[11px] text-espresso/60 mt-2 flex items-center gap-1.5">
+                <Loader2 className="w-3.5 h-3.5 animate-spin text-olive" />
+                <span>Checking link availability...</span>
+              </p>
+            )}
+
+            {!slugStatus.checking && formData.custom_slug && slugStatus.available && (
+              <p className="text-[11px] text-emerald-700 font-medium mt-2 flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                <span>{slugStatus.message}</span>
+              </p>
+            )}
+
+            {!slugStatus.checking && !slugStatus.available && (
+              <div className="mt-2.5 p-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs">
+                <p className="flex items-center gap-1.5 font-medium">
+                  <AlertCircle className="w-4 h-4 text-amber-600 flex-shrink-0" />
+                  <span>{slugStatus.message}</span>
+                </p>
+                {slugStatus.suggestion && (
+                  <button
+                    type="button"
+                    onClick={() => handleSlugChange(slugStatus.suggestion)}
+                    className="mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-amber-200/60 hover:bg-amber-200 text-amber-950 font-mono text-[11px] font-semibold transition-colors cursor-pointer"
+                  >
+                    <span>Use: <strong>{slugStatus.suggestion}</strong></span>
+                    <span className="text-[10px] uppercase font-sans font-normal opacity-80">(Click to apply)</span>
+                  </button>
+                )}
+              </div>
+            )}
           </div>
 
           {/* ================================================================= */}

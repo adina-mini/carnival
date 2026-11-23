@@ -202,6 +202,68 @@ export async function saveInvitation(invitation) {
 }
 
 /**
+ * Check if a custom invitation slug is available
+ */
+export async function checkSlugAvailability(slug, excludeId = null) {
+  if (!slug) return { available: false, suggestion: '' };
+  
+  const cleanSlug = slug
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9-]/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+
+  if (!cleanSlug) return { available: false, suggestion: '' };
+
+  if (isSupabaseConfigured && supabase) {
+    let query = supabase
+      .from('invitations')
+      .select('id')
+      .eq('id', cleanSlug);
+      
+    if (excludeId) {
+      query = query.neq('id', excludeId);
+    }
+    
+    const { data, error } = await query;
+    if (!error) {
+      if (!data || data.length === 0) {
+        return { available: true, slug: cleanSlug, suggestion: '' };
+      }
+    }
+  } else {
+    const store = getStore();
+    const existing = store[cleanSlug];
+    if (!existing || (excludeId && existing.id === excludeId)) {
+      return { available: true, slug: cleanSlug, suggestion: '' };
+    }
+  }
+
+  // Generate recommendation e.g. cleanSlug-2, cleanSlug-3
+  let counter = 2;
+  let suggestion = `${cleanSlug}-${counter}`;
+  
+  if (isSupabaseConfigured && supabase) {
+    while (counter < 20) {
+      const { data } = await supabase.from('invitations').select('id').eq('id', suggestion);
+      if (!data || data.length === 0) break;
+      counter++;
+      suggestion = `${cleanSlug}-${counter}`;
+    }
+  } else {
+    const store = getStore();
+    while (counter < 20) {
+      if (!store[suggestion]) break;
+      counter++;
+      suggestion = `${cleanSlug}-${counter}`;
+    }
+  }
+
+  return { available: false, slug: cleanSlug, suggestion };
+}
+
+/**
  * Fetch an invitation by unique ID or slug
  */
 export async function getInvitationById(id) {
@@ -243,10 +305,10 @@ export async function listUserInvitations(userId = null) {
   const store = getStore();
   const all = Object.values(store);
   if (userId) {
-    const userOnly = all.filter((item) => item.user_id === userId || !item.user_id);
-    return userOnly.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+    // Only return invitations explicitly belonging to this user
+    return all.filter((item) => item.user_id === userId).sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
   }
-  return all.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+  return [];
 }
 
 /**
