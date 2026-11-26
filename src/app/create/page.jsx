@@ -192,8 +192,8 @@ function CreatePageInner() {
         template_id: selectedTemplateId,
         title: `${formData.bride_name} & ${formData.groom_name || 'Union'}'s Digital Invitation`,
         event_type: template.category,
-        status: 'pending_payment',
-        published_at: null,
+        status: 'published',
+        published_at: new Date().toISOString(),
         user_id: actingUser?.id || null,
         data: compiledData,
         media: mediaUploads,
@@ -201,7 +201,7 @@ function CreatePageInner() {
 
       await saveInvitation(record);
       setPublishedInviteId(id);
-      setPaymentModalOpen(true);
+      setPublishModalOpen(true);
     } catch (err) {
       setErrorMessage('Failed to publish invitation. Please check your connection and try again.');
     } finally {
