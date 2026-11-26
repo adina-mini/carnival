@@ -169,15 +169,7 @@ function CreatePageInner() {
 
   // SAVE AS DRAFT TRIGGER
   const handleSaveDraft = () => {
-    if (!user) {
-      openAuthModal({
-        title: 'Sign In to Save Draft',
-        description: 'Sign in to save your draft safely and continue customizing from any device.',
-        callback: (authUser) => executeSaveDraft(authUser),
-      });
-      return;
-    }
-    executeSaveDraft(user);
+    executeSaveDraft(user || null);
   };
 
   // Core execution of Publish
@@ -235,15 +227,8 @@ function CreatePageInner() {
       return;
     }
 
-    if (!user) {
-      openAuthModal({
-        title: 'Sign In to Publish Invitation',
-        description: 'Sign in to generate your live link, track guest RSVPs, and manage your card.',
-        callback: (authUser) => executePublish(authUser),
-      });
-      return;
-    }
-    executePublish(user);
+    // Direct Instant Creation: No forced login gate blocking client card creation
+    executePublish(user || null);
   };
 
   const allTemplates = availableTemplates.length > 0 ? availableTemplates : getAllTemplates();
