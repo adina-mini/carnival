@@ -51,6 +51,10 @@ function CreatePageInner() {
     venue_map_url: '',
     hashtag: '',
     schedule: template.sampleData?.schedule || [],
+    contacts: [
+      { name: 'Family Contact', phone: '' },
+      { name: 'Family Contact', phone: '' },
+    ],
   });
 
   const [mediaUploads, setMediaUploads] = useState({});

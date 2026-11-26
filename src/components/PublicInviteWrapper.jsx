@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import IntroGate from '@/components/IntroGate';
+import FamilyContactBar from '@/components/FamilyContactBar';
 import { getTemplateById } from '@/templates/registry';
 
 export default function PublicInviteWrapper({ template: initialTemplate, templateId, personalizedData = {}, invitationId }) {
@@ -59,6 +60,8 @@ export default function PublicInviteWrapper({ template: initialTemplate, templat
           invitationId={invitationId}
           suppressIntro={true}
         />
+        {/* Direct Call & WhatsApp Contact Bar */}
+        <FamilyContactBar contacts={personalizedData?.contacts || []} />
       </div>
     </div>
   );

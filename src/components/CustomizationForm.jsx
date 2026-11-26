@@ -675,6 +675,61 @@ export default function CustomizationForm({
             </span>
           </div>
 
+          {/* ================================================================= */}
+          {/* FAMILY CONTACT NUMBERS (DIRECT CALL & WHATSAPP)                   */}
+          {/* ================================================================= */}
+          <div className="pt-4 border-t border-sand-200">
+            <label className="block text-xs font-semibold uppercase tracking-wider text-espresso mb-1">
+              Family RSVP / Inquiry Phone Numbers
+            </label>
+            <p className="text-[11px] text-espresso/70 mb-3">
+              Add direct phone numbers for family coordination. Guests can tap &ldquo;Call&rdquo; to dial or &ldquo;WhatsApp&rdquo; to chat instantly.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[0, 1].map((idx) => {
+                const currentContacts = formData.contacts || [];
+                const contact = currentContacts[idx] || { name: `Contact ${idx + 1}`, phone: '' };
+
+                const updateContact = (field, val) => {
+                  const updated = [...(formData.contacts || [{}, {}])];
+                  while (updated.length < 2) updated.push({});
+                  updated[idx] = { ...updated[idx], [field]: val };
+                  handleChange('contacts', updated);
+                };
+
+                return (
+                  <div key={idx} className="p-3.5 rounded-2xl bg-sand-50/80 border border-sand-300 space-y-2">
+                    <div>
+                      <label className="block text-[10px] font-semibold uppercase tracking-wider text-espresso/70 mb-1">
+                        Contact Label (e.g. Groom Family / Bride Brother)
+                      </label>
+                      <input
+                        type="text"
+                        value={contact.name || ''}
+                        onChange={(e) => updateContact('name', e.target.value)}
+                        placeholder="e.g. Family Contact"
+                        className="w-full px-3 py-2 rounded-xl bg-paper border border-sand-300 text-espresso text-xs focus:outline-none focus:border-espresso"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[10px] font-semibold uppercase tracking-wider text-espresso/70 mb-1">
+                        Phone / WhatsApp Number
+                      </label>
+                      <input
+                        type="tel"
+                        value={contact.phone || ''}
+                        onChange={(e) => updateContact('phone', e.target.value)}
+                        placeholder="e.g. 0336 6723772"
+                        className="w-full px-3 py-2 rounded-xl bg-paper border border-sand-300 text-espresso text-xs font-mono focus:outline-none focus:border-espresso"
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
           <div className="pt-4 flex justify-between">
             <button
               type="button"
