@@ -24,9 +24,13 @@ export default function PublicInviteWrapper({ template: initialTemplate, templat
     '/assets/couple-golden-intro.jpg';
 
   // Determine couple / honoree names for the intro
+  const isGroomFirst = Boolean(personalizedData?.groom_first);
+  const firstName = isGroomFirst ? personalizedData?.groom_name : personalizedData?.bride_name;
+  const secondName = isGroomFirst ? personalizedData?.bride_name : personalizedData?.groom_name;
+
   const title =
-    personalizedData?.bride_name && personalizedData?.groom_name
-      ? `${personalizedData.bride_name} & ${personalizedData.groom_name}`
+    firstName && secondName
+      ? `${firstName} & ${secondName}`
       : personalizedData?.event_title || template.name;
 
   const subtitle =

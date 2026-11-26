@@ -265,27 +265,59 @@ export default function CustomizationForm({
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
-              <label className="block text-xs font-semibold uppercase tracking-wider text-espresso mb-1.5">
-                Bride&apos;s / Honoree Name <span className="text-burgundy">*</span>
-              </label>
+              <div className="flex items-center justify-between mb-1.5">
+                <label className="block text-xs font-semibold uppercase tracking-wider text-espresso">
+                  First / Primary Honoree <span className="text-burgundy">*</span>
+                </label>
+                <div className="flex items-center gap-1.5 text-[11px] font-sans">
+                  <span className={formData.groom_first ? "text-espresso/60" : "text-olive font-bold"}>Bride First</span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const newOrder = !formData.groom_first;
+                      handleChange('groom_first', newOrder);
+                    }}
+                    className="p-1 rounded-lg bg-sand-200 hover:bg-sand-300 text-espresso text-[10px] font-semibold transition-colors cursor-pointer"
+                    title="Switch Name Order"
+                  >
+                    ⇄ Switch Order
+                  </button>
+                  <span className={formData.groom_first ? "text-olive font-bold" : "text-espresso/60"}>Groom First</span>
+                </div>
+              </div>
               <input
                 type="text"
-                value={formData.bride_name || ''}
-                onChange={(e) => handleChange('bride_name', e.target.value)}
-                placeholder="e.g. Fatima Hafeez"
+                value={formData.groom_first ? (formData.groom_name || '') : (formData.bride_name || '')}
+                onChange={(e) => {
+                  if (formData.groom_first) {
+                    handleChange('groom_name', e.target.value);
+                  } else {
+                    handleChange('bride_name', e.target.value);
+                  }
+                }}
+                placeholder={formData.groom_first ? "e.g. Rao Sharjeel (Groom)" : "e.g. Fatima Hafeez (Bride)"}
                 className="w-full px-4 py-3 rounded-2xl bg-sand-50/80 border border-sand-300 text-espresso placeholder-espresso/40 text-xs focus:outline-none focus:ring-2 focus:ring-espresso focus:border-espresso transition-all"
               />
+              <span className="text-[10px] text-espresso/60 mt-1 block">
+                {formData.groom_first ? "👨 Groom's side card (Groom name appears on top)" : "👰 Bride's side card (Bride name appears on top)"}
+              </span>
             </div>
 
             <div>
               <label className="block text-xs font-semibold uppercase tracking-wider text-espresso mb-1.5">
-                Groom&apos;s Full Name (Optional)
+                {formData.groom_first ? "Bride's Name (Optional)" : "Groom's Name (Optional)"}
               </label>
               <input
                 type="text"
-                value={formData.groom_name || ''}
-                onChange={(e) => handleChange('groom_name', e.target.value)}
-                placeholder="e.g. Rao Sharjeel"
+                value={formData.groom_first ? (formData.bride_name || '') : (formData.groom_name || '')}
+                onChange={(e) => {
+                  if (formData.groom_first) {
+                    handleChange('bride_name', e.target.value);
+                  } else {
+                    handleChange('groom_name', e.target.value);
+                  }
+                }}
+                placeholder={formData.groom_first ? "e.g. Fatima Hafeez" : "e.g. Rao Sharjeel"}
                 className="w-full px-4 py-3 rounded-2xl bg-sand-50/80 border border-sand-300 text-espresso placeholder-espresso/40 text-xs focus:outline-none focus:ring-2 focus:ring-espresso focus:border-espresso transition-all"
               />
             </div>

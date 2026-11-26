@@ -23,9 +23,16 @@ import { submitRsvp } from '@/lib/supabase';
 
 export default function RoyalBurgundy({ data, isSample = false, invitationId, suppressIntro = false }) {
   // Normalize fields with robust fallbacks
-  const brideName = data?.bride_name || "Fatima Hafeez";
-  const groomName = data?.groom_name || "Rao Sharjeel";
-  const coupleInitials = data?.couple_initials || (brideName[0] && groomName[0] ? `${brideName[0]} & ${groomName[0]}` : "F & S");
+  const groomFirst = Boolean(data?.groom_first);
+  const rawFirstName = groomFirst ? (data?.groom_name || "Rao Sharjeel") : (data?.bride_name || "Fatima Hafeez");
+  const rawSecondName = groomFirst ? (data?.bride_name || "Fatima Hafeez") : (data?.groom_name || "Rao Sharjeel");
+
+  const brideName = groomFirst ? rawSecondName : rawFirstName;
+  const groomName = groomFirst ? rawFirstName : rawSecondName;
+  const firstName = groomFirst ? groomName : brideName;
+  const secondName = groomFirst ? brideName : groomName;
+
+  const coupleInitials = data?.couple_initials || (firstName[0] && secondName[0] ? `${firstName[0]} & ${secondName[0]}` : "F & S");
   const eventDateIso = data?.event_date_iso || "2026-11-07T12:00:00";
   const eventDateDisplay = data?.event_date_display || "Saturday • November 7, 2026";
   const eventTimeDisplay = data?.event_time_display || "Twelve O'Clock in the Afternoon";
@@ -296,7 +303,7 @@ export default function RoyalBurgundy({ data, isSample = false, invitationId, su
             {/* Couple Names */}
             <div className="my-3">
               <h1 className="font-script text-5xl sm:text-6xl text-wine-900 leading-tight">
-                {brideName}
+                {firstName}
               </h1>
               <div className="flex items-center justify-center gap-3 my-1.5">
                 <span className="h-0.5 w-12 bg-gradient-to-r from-transparent via-champagne-400 to-champagne-500" />
@@ -304,7 +311,7 @@ export default function RoyalBurgundy({ data, isSample = false, invitationId, su
                 <span className="h-0.5 w-12 bg-gradient-to-l from-transparent via-champagne-400 to-champagne-500" />
               </div>
               <h1 className="font-script text-5xl sm:text-6xl text-wine-900 leading-tight">
-                {groomName}
+                {secondName}
               </h1>
             </div>
 
@@ -551,7 +558,7 @@ export default function RoyalBurgundy({ data, isSample = false, invitationId, su
                 With love, prayers &amp; eternal gratitude,
               </p>
               <p className="font-script text-4xl sm:text-5xl text-wine-900 mb-6">
-                {brideName.split(' ')[0]} &amp; {groomName.split(' ')[0]}
+                {firstName.split(' ')[0]} &amp; {secondName.split(' ')[0]}
               </p>
 
               <p className="text-[10px] font-cinzel tracking-[0.25em] text-wine-900/70 uppercase font-semibold">
